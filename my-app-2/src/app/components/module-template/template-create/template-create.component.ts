@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { MasterTemplateConfig } from '../../../data/configTree/MasterTemplateConfig';
-import { NodeType } from '../../../data/configTree/NodeType';
-import { NodeChecker } from '../../../data/configTree/NodeChecker';
-import { App } from '../../../layout/index.component';
+import {Component, OnInit} from '@angular/core';
+import {MasterTemplateConfig} from '../../../data/configTree/MasterTemplateConfig';
+import {NodeType} from '../../../data/configTree/NodeType';
+import {NodeChecker} from '../../../data/configTree/NodeChecker';
+import {App} from '../../../layout/index.component';
 
 declare let $: any;
 declare let jQuery: any;
@@ -13,75 +13,28 @@ declare let jQuery: any;
 })
 export class TemplateCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     const masterConfig = new MasterTemplateConfig();
 
     const _menu = $('#SettingTree').jstree({
-      'core' : {
-        'themes' : {
+      'core': {
+        'themes': {
           'responsive': true
         },
         'check_callback': true,
         'data': masterConfig.totalArea
       },
-      'types' : NodeType.nodeType,
+      'types': NodeType.nodeType,
       'plugins': ['types', 'wholerow', 'contextmenu'],
       contextmenu: {
-        'items' : function(node){
+        'items': function (node) {
           const type = this.get_type(node);
           const t_node = NodeType[type];
           createAction(t_node, type);
           return t_node;
-          /*return {
-           '新建菜单': {
-           'label': '新建菜单',
-           'action': function(data){
-           const node = _menu.jstree('get_node', data.reference[0]);
-           const pid = node.parent;
-           addMenu(pid,node);
-           }
-           },
-           '删除菜单': {
-           'label': '删除菜单',
-           'action': function(data){
-           const node = _menu.jstree('get_node', data.reference[0]);
-           _menu.operation.delMenu(node);
-           }
-           },
-           '修改菜单': {
-           'label': '修改菜单',
-           'action': function(data){
-           const node = _menu.jstree('get_node', data.reference[0]).original;
-           _menu.operation.editMenu(node);
-           }
-           },
-           '上移菜单':{
-           'label': '上移菜单',
-           'action': function(data){
-           const node = _menu.jstree('get_node',data.reference[0]);
-           const prev_dom = $(data.reference[0]).closest('li').prev();
-           _menu.operation.sortMenu(node, prev_dom);
-           }
-           },
-           '下移菜单':{
-           'label': '下移菜单',
-           'action': function(data){
-           const node = _menu.jstree('get_node',data.reference[0]);
-           const next_dom = $(data.reference[0]).closest('li').next();
-           _menu.operation.sortMenu(node, next_dom);
-           }
-           },
-           '新建子菜单':{
-           'label': '新建子菜单',
-           'action': function(data){
-           const node = _menu.jstree('get_node',data.reference[0]);
-           const pid = node.id;
-           _menu.operation.addMenu(pid, node);
-           }
-           }
-           };*/
         }
       }
     });
@@ -179,18 +132,18 @@ export class TemplateCreateComponent implements OnInit {
     };
     $('#SettingTree').on('select_node.jstree', (e, data) => {
       allTreeJson = instance.get_json();
-      console.log(allTreeJson);
+      /*console.log(allTreeJson);
       $('#checkJsonTree').jstree({
-        'core' : {
-          'themes' : {
+        'core': {
+          'themes': {
             'responsive': true
           },
           'check_callback': true,
           'data': allTreeJson
         },
-        'types' : NodeType.nodeType,
+        'types': NodeType.nodeType,
         'plugins': ['types'],
-      });
+      });*/
       //const instance2 = $('#checkJsonTree').jstree(true);
       // instance2.set_type(data.node, 'checkFalse');
       // console.log(instance.get_rules(data.node));
@@ -202,7 +155,9 @@ export class TemplateCreateComponent implements OnInit {
     }
 
     function format(state) {
-      if (!state.id) {return state.text;} // optgroup
+      if (!state.id) {
+        return state.text;
+      } // optgroup
       return '<img class="flag" src="/assets/global/img/flags/"' + state.id.toLowerCase() + '".png"/>&nbsp;&nbsp;' + state.text;
     };
 
@@ -221,7 +176,7 @@ export class TemplateCreateComponent implements OnInit {
     const error = $('.alert-danger', form);
     const success = $('.alert-success', form);
 
-    jQuery.validator.addMethod("chinese", function(value, element) {
+    jQuery.validator.addMethod("chinese", function (value, element) {
       const chinese = /^[\u4e00-\u9fa5]+$/;
       return this.optional(element) || (chinese.test(value));
     }, '请输入中文标题');
@@ -232,95 +187,95 @@ export class TemplateCreateComponent implements OnInit {
       errorClass: 'help-block help-block-error', // default input error message class
       focusInvalid: false, // do not focus the last invalid input
       /*rules: {
-        // account
-        username: {
-          minlength: 5,
-          required: true
-        },
-        password: {
-          minlength: 5,
-          required: true
-        },
-        rpassword: {
-          minlength: 5,
-          required: true,
-          equalTo: '#submit_form_password'
-        },
-        // profile
-        templateName: {
-          required: true,
-          chinese: true
-        },
-        templateIcon: {
-          required: true
-        },
-        templateNameCode: {
-          required: true
-        },
-        templateController: {
-          required: true
-        },
-        email: {
-          required: true,
-          email: true
-        },
-        phone: {
-          required: true
-        },
-        gender: {
-          required: true
-        },
-        address: {
-          required: true
-        },
-        city: {
-          required: true
-        },
-        country: {
-          required: true
-        },
-        // payment
-        card_name: {
-          required: true
-        },
-        card_number: {
-          minlength: 16,
-          maxlength: 16,
-          required: true
-        },
-        card_cvc: {
-          digits: true,
-          required: true,
-          minlength: 3,
-          maxlength: 4
-        },
-        card_expiry_date: {
-          required: true
-        },
-        'payment[]': {
-          required: true,
-          minlength: 1
-        }
-      },
+       // account
+       username: {
+       minlength: 5,
+       required: true
+       },
+       password: {
+       minlength: 5,
+       required: true
+       },
+       rpassword: {
+       minlength: 5,
+       required: true,
+       equalTo: '#submit_form_password'
+       },
+       // profile
+       templateName: {
+       required: true,
+       chinese: true
+       },
+       templateIcon: {
+       required: true
+       },
+       templateNameCode: {
+       required: true
+       },
+       templateController: {
+       required: true
+       },
+       email: {
+       required: true,
+       email: true
+       },
+       phone: {
+       required: true
+       },
+       gender: {
+       required: true
+       },
+       address: {
+       required: true
+       },
+       city: {
+       required: true
+       },
+       country: {
+       required: true
+       },
+       // payment
+       card_name: {
+       required: true
+       },
+       card_number: {
+       minlength: 16,
+       maxlength: 16,
+       required: true
+       },
+       card_cvc: {
+       digits: true,
+       required: true,
+       minlength: 3,
+       maxlength: 4
+       },
+       card_expiry_date: {
+       required: true
+       },
+       'payment[]': {
+       required: true,
+       minlength: 1
+       }
+       },
 
-      messages: { // custom messages for radio buttons and checkboxes
-        'payment[]': {
-          required: 'Please select at least one option',
-          minlength: jQuery.validator.format('Please select at least one option')
-        },
-        'templateName':{
-          required: '请输入模版名称'
-        },
-        'templateIcon':{
-          required: '请输入模版图标'
-        },
-        'templateNameCode':{
-          required: '请输入模版编码'
-        },
-        'templateController':{
-          required: '请输入模版控制器名称'
-        }
-      },*/
+       messages: { // custom messages for radio buttons and checkboxes
+       'payment[]': {
+       required: 'Please select at least one option',
+       minlength: jQuery.validator.format('Please select at least one option')
+       },
+       'templateName':{
+       required: '请输入模版名称'
+       },
+       'templateIcon':{
+       required: '请输入模版图标'
+       },
+       'templateNameCode':{
+       required: '请输入模版编码'
+       },
+       'templateController':{
+       required: '请输入模版控制器名称'
+       }
+       },*/
 
       errorPlacement: function (error, element) { // render error placement for each input type
         if (element.attr('name') === 'gender') { // for uniform radio buttons, insert the after the given container
@@ -335,7 +290,7 @@ export class TemplateCreateComponent implements OnInit {
       invalidHandler: function (event, validator) { // display error alert on form submit
         success.hide();
         error.show();
-         App.scrollTo(error, -200);
+        App.scrollTo(error, -200);
       },
 
       highlight: function (element) { // hightlight error inputs
@@ -368,8 +323,8 @@ export class TemplateCreateComponent implements OnInit {
 
     });
 
-    const displayConfirm = function() {
-      $('#tab4 .form-control-static', form).each(function(){
+    const displayConfirm = function () {
+      $('#tab4 .form-control-static', form).each(function () {
         let input = $('[name="' + $(this).attr('data-display') + '"]', form);
         if (input.is(':radio')) {
           input = $('[name="' + $(this).attr('data-display') + '"]:checked', form);
@@ -382,7 +337,7 @@ export class TemplateCreateComponent implements OnInit {
           $(this).html(input.attr('data-title'));
         } else if ($(this).attr('data-display') == 'payment[]') {
           let payment = [];
-          $('[name="payment[]"]:checked', form).each(function(){
+          $('[name="payment[]"]:checked', form).each(function () {
             payment.push($(this).attr('data-title'));
           });
           $(this).html(payment.join('<br>'));
@@ -390,7 +345,7 @@ export class TemplateCreateComponent implements OnInit {
       });
     };
 
-    const handleTitle = function(tab, navigation, index) {
+    const handleTitle = function (tab, navigation, index) {
       const total = navigation.find('li').length;
       const current = index + 1;
       // set wizard title
@@ -407,19 +362,19 @@ export class TemplateCreateComponent implements OnInit {
       } else {
         $('#form_wizard_1').find('.button-previous').show();
       }
-      if(current === 4){
+      if (current === 4) {
         allTreeJson = instance.get_json();
         const nodeChecker = new NodeChecker(allTreeJson);
         nodeChecker.startCheck(allTreeJson);
         $('#checkJsonTree').jstree({
-          'core' : {
-            'themes' : {
+          'core': {
+            'themes': {
               'responsive': true
             },
             'check_callback': true,
             'data': allTreeJson
           },
-          'types' : NodeType.nodeType,
+          'types': NodeType.nodeType,
           'plugins': ['types'],
         });
       }
@@ -432,7 +387,7 @@ export class TemplateCreateComponent implements OnInit {
         $('#form_wizard_1').find('.button-submit').hide();
       }
 
-       App.scrollTo($('.page-title'),false);
+      App.scrollTo($('.page-title'), false);
     };
 
     // default form wizard
@@ -528,7 +483,7 @@ export class TemplateCreateComponent implements OnInit {
       singlePageDeeplinking: true,
       singlePageStickyNavigation: true,
       singlePageCounter: '<div class="cbp-popup-singlePage-counter">{{current}} of {{total}}</div>',
-      singlePageCallback: function(url, element) {
+      singlePageCallback: function (url, element) {
         // to update singlePage content use the following method: this.updateSinglePage(yourContent)
         const t = this;
 
@@ -538,17 +493,17 @@ export class TemplateCreateComponent implements OnInit {
           dataType: 'html',
           timeout: 10000
         })
-          .done(function(result) {
+          .done(function (result) {
             t.updateSinglePage(result);
           })
-          .fail(function() {
+          .fail(function () {
             t.updateSinglePage('AJAX Error! Please refresh the page!');
           });
       },
     });
 
-    $('.chooseName').each(function(){
-      $(this).bind('click',function(){
+    $('.chooseName').each(function () {
+      $(this).bind('click', function () {
         const name = $(this).attr('data-temp');
         $('#chooseTemplateName').html(name);
       });
