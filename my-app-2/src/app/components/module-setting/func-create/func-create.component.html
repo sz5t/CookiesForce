@@ -1,0 +1,108 @@
+<div class="portlet light bordered">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="icon-settings font-dark"></i>
+      <span class="caption-subject font-dark sbold uppercase">创建功能</span>
+    </div>
+  </div>
+  <div class="portlet-body form">
+    <form class="form-horizontal" role="form">
+      <div class="form-body">
+        <div class="form-group">
+          <label for="single-append-text" class="control-label col-md-3"> 选择模版 </label>
+          <div class="input-group select2-bootstrap-append col-md-3">
+            <select id="single-append-text" class="form-control select2-allow-clear">
+              <option></option>
+              <option value="CT">用户管理</option>
+              <option value="DE">组织结构-人员</option>
+              <option value="FL">组织结构维护</option>
+              <option value="GA">数据字典维护</option>
+              <option value="IN">计量单位维护</option>
+              <option value="ME">角色维护</option>
+              <option value="MD">权限维护</option>
+              <option value="MA">项目管理</option>
+            </select>
+            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button" data-select2-open="single-append-text">
+                                                    <span class="glyphicon glyphicon-search"></span>
+                                                </button>
+                                            </span>
+          </div>
+        </div>
+        <hr>
+        <div class="form-group">
+
+          <label class="control-label col-md-3">模版标题
+            <span class="required"> * </span>
+          </label>
+          <div class="input-group col-md-4">
+            <input type="text" class="form-control" name="templateName" />
+            <span class="help-block">功能标题建议使用中文</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-3">功能图标
+            <span class="required"> * </span>
+          </label>
+          <div class=" input-group col-md-4">
+            <input type="text" class="form-control" name="templateIcon" />
+            <span class="help-block">（如：fa fa-users／icon-users 等 Font Awesome Icon）</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">启用／禁用</label>
+          <div class="col-md-4 input-group">
+            <div class="mt-radio-inline">
+              <label class="mt-radio">
+                <input type="radio" name="optionsRadios" id="optionsRadios25" value="option1" checked> 启用
+                <span></span>
+              </label>
+              <label class="mt-radio">
+                <input type="radio" name="optionsRadios" id="optionsRadios26" value="option2"> 禁用
+                <span></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-3">功能编码名称
+            <span class="required"> * </span>
+          </label>
+          <div class="col-md-4 input-group">
+            <input type="text" class="form-control" name="templateNameCode" />
+            <span class="help-block"> 编码名称是标识模版唯一性的名称 </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-3">功能控制器
+            <span class="required"> * </span>
+          </label>
+          <div class="col-md-4 input-group">
+            <input type="text" class="form-control" name="templateController" />
+            <span class="help-block"> 控制器用来控制处理功能的处理程序 </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-3">备注</label>
+          <div class="col-md-4 input-group">
+            <textarea class="form-control" rows="5" name="remarks"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <div class="row">
+          <div class="col-md-offset-3 col-md-9">
+            <button type="submit" class="btn blue"><i class="fa fa-check"></i> 保存 </button>
+            <button type="submit" class="btn green"><i class="fa fa-arrow-right"></i> 保存并继续 </button>
+            <button type="button" class="btn default"> 取消 </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+
