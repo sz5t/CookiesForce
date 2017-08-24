@@ -10,7 +10,9 @@ import {TemplateCustomComponent} from './template-custom/template-custom.compone
 
 export const CHILD_ROUTES: Routes = [
   { path : '', component : ModuleTemplateComponent },
-  { path : 'create', component : TemplateCreateComponent },
+  { path : 'create', component : TemplateCreateComponent, children:[
+    { path: 'template-properties', loadChildren: './template-properties/template-properties.module#TemplatePropertiesModule'}
+  ] },
   { path : 'edit:id', component: TemplateEditComponent },
   { path : 'custom', component: TemplateCustomComponent },
 ];

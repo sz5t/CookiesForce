@@ -1,0 +1,151 @@
+<div class="portlet light bordered" id="blockui_sample_1_portlet_body">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="fa fa-indent font-green-sharp"></i>
+      <span class="caption-subject font-green-sharp bold">按钮编辑</span>
+    </div>
+  </div>
+  <div class="portlet-body">
+
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#tab_1_1" data-toggle="tab"> 属性 </a>
+      </li>
+      <li>
+        <a href="#tab_1_2" data-toggle="tab"> 事件 </a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade active in" id="tab_1_1">
+        <table id="button" class="table table-bordered table-striped">
+          <tbody>
+          <tr>
+            <td> ID </td>
+            <td>
+              <a href="javascript:;" id="id" data-type="text" data-pk="1" data-original-title=""> temp_id_1 </a>
+            </td>
+            <td>
+              <span class="text-muted"> 设置按钮唯一标识 </span>
+            </td>
+          </tr>
+          <tr>
+            <td> 按钮类型 </td>
+            <td>
+              <a href="javascript:;" id="type" data-type="select" data-value="button" data-pk="button" data-placement="right" data-placeholder="Required" data-original-title="选择按钮类型"> </a>
+            </td>
+            <td>
+              <span class="text-muted"> 请选择按钮或者分隔符 </span>
+            </td>
+          </tr>
+          <tr>
+            <td> 启用状态图标 </td>
+            <td>
+              <a href="javascript:;" id="img" data-type="text" data-pk="1" data-value="" data-original-title="Select sex"><i class="fa fa-plus green"></i> </a>
+            </td>
+            <td>
+              <span class="text-muted"> 请使用 Awesome Font Icon  <strong>（fa fa-user）</strong></span>
+            </td>
+          </tr>
+          <tr>
+            <td> 禁用状态图标 </td>
+            <td>
+              <a href="javascript:;" id="disImg" data-type="text" data-pk="1" data-value="5" data-source="/groups" data-original-title="Select group"> <i class="fa fa-plus grey"></i> </a>
+            </td>
+            <td>
+              <span class="text-muted"> 请使用 Awesome Font Icon <strong>（fa fa-user）</strong></span>
+            </td>
+          </tr>
+          <tr>
+            <td> 内容 </td>
+            <td>
+              <a href="javascript:;" id="text" data-type="text" data-pk="1"> 添加 </a>
+            </td>
+            <td>
+              <span class="text-muted"> 按钮中显示的文字 </span>
+            </td>
+          </tr>
+          <tr>
+            <td>触发效果</td>
+            <td>
+              <a href="javascript:;" id="htype" data-type="select"  data-pk="1" data-placement="right" data-original-title="请选择按钮触发效果"> 弹出窗体 </a>
+            </td>
+            <td>
+              <span class="text-muted"> 选择不同的按钮类型，会触发不同的按钮事件效果 </span>
+            </td>
+          </tr>
+          <tr>
+            <td> 初始状态 </td>
+            <td>
+              <a href="javascript:;" id="initState" data-type="select" data-value="true"  data-original-title="请选择按钮初始状态">启用
+              </a>
+            </td>
+            <td>
+              <span class="text-muted"> 设置表格中没有任何数据时，按钮的默认状态 </span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane fade" id="tab_1_2">
+        <table id=" buttonEvent" class="table table-bordered table-striped">
+          <tbody>
+          <tr>
+            <td> 标题 </td>
+            <td>
+              <a href="javascript:;" id="event_title" data-type="text" data-pk="1" data-original-title=""> 添加数据 </a>
+            </td>
+            <td>
+              <span class="text-muted">  </span>
+            </td>
+          </tr>
+          <tr>
+            <td> 提示内容 </td>
+            <td>
+              <a href="javascript:;" id="event_text" data-type="select" data-value="button" data-pk="button" data-placement="right" data-placeholder="Required" data-original-title="选择按钮类型"> </a>
+            </td>
+            <td>
+              <span class="text-muted"> </span>
+            </td>
+          </tr>
+          <tr>
+            <td> 动作类型 </td>
+            <td>
+              <a href="javascript:;" id="event_type" data-type="select" data-pk="1" data-value="" data-original-title="Select sex">弹出窗体 </a>
+            </td>
+            <td>
+              <span class="text-muted">  </span>
+            </td>
+          </tr>
+          <tr>
+            <td> API </td>
+            <td>
+              <a href="javascript:;" id="event_api" data-type="text" data-pk="1" data-value="5" data-source="/groups" data-original-title="Select group"> AppUser </a>
+            </td>
+            <td>
+              <span class="text-muted"> 请使用资源对象名称</span>
+            </td>
+          </tr>
+          <tr>
+            <td> 主键 </td>
+            <td>
+              <a href="javascript:;" id="event_keyId" data-type="text" data-pk="1"> a_001 </a>
+            </td>
+            <td>
+              <span class="text-muted"> 一条记录的唯一标识 </span>
+            </td>
+          </tr>
+          <tr>
+            <td>操作类型</td>
+            <td>
+              <a href="javascript:;" id="event_method" data-type="select"  data-pk="1" data-placement="right" data-original-title="请选择按钮触发效果"> 弹出窗体 </a>
+            </td>
+            <td>
+              <span class="text-muted"> 存储过程、删除、获取 </span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

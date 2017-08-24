@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {letProto} from "rxjs/operator/let";
+import { Router } from '@angular/router';
 
 declare let $: any;
 @Component({

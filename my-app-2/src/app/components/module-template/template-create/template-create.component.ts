@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {MasterTemplateConfig} from '../../../data/configTree/MasterTemplateConfig';
 import {NodeType} from '../../../data/configTree/NodeType';
 import {NodeChecker} from '../../../data/configTree/NodeChecker';
@@ -13,7 +14,7 @@ declare let jQuery: any;
 })
 export class TemplateCreateComponent implements OnInit {
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
@@ -131,7 +132,8 @@ export class TemplateCreateComponent implements OnInit {
       }
     };
     $('#SettingTree').on('select_node.jstree', (e, data) => {
-      allTreeJson = instance.get_json();
+      this.router.navigate(['/app/module-template/create/template-properties/'+ data.node.type + '']);
+      //allTreeJson = instance.get_json();
       /*console.log(allTreeJson);
       $('#checkJsonTree').jstree({
         'core': {

@@ -76,7 +76,8 @@
         "assets/global/plugins/jquery.mockjax.js",
         "assets/global/plugins/bootstrap-editable/bootstrap-editable/js/bootstrap-editable.js",
         "assets/global/plugins/bootstrap-editable/inputs-ext/address/address.js",
-        "assets/global/plugins/bootstrap-typeahead/bootstrap3-typeahead.min.js"
+        "assets/global/plugins/bootstrap-typeahead/bootstrap3-typeahead.min.js",
+        "bower_components/mockjs/dist/mock.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
