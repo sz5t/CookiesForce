@@ -134,8 +134,9 @@ export class TemplateCreateComponent implements OnInit {
     };
     $('#SettingTree').on('select_node.jstree', (e, data) => {
       let nodeData = data.node.data;
-      this.router.navigate(['/app/module-template/create/template-properties/'+ data.node.type + '']);
-      this.broadcaster.broadcast('node_properties', data.node.data);
+      const promise = this.router.navigate(['/app/module-template/create/template-properties/'+ data.node.type + '']);
+      promise.then(() =>{this.broadcaster.broadcast('node_properties', data.node.data);});
+
       //allTreeJson = instance.get_json();
       /*console.log(allTreeJson);
       $('#checkJsonTree').jstree({

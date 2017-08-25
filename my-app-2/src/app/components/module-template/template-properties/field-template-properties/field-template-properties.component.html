@@ -16,109 +16,114 @@
       </li>
     </ul>
     <div class="tab-content">
-      <div class="tab-pane fade active in" id="tab_1_1">
-        <table id="button" class="table table-bordered table-striped">
-          <tbody>
-          <tr>
-            <td> 字段 </td>
-            <td>
-              <a href="javascript:;" id="id" data-type="text" data-pk="1" data-original-title=""> temp_id_1 </a>
-            </td>
-            <td>
-              <span class="text-muted"> 设置列与数据源绑定的字段名称 </span>
-            </td>
-          </tr>
-          <tr>
-            <td> 列标题 </td>
-            <td>
-              <a href="javascript:;" id="id" data-type="text" data-pk="1" data-original-title=""> temp_id_1 </a>
-            </td>
-            <td>
-              <span class="text-muted"> </span>
-            </td>
-          </tr>
-          <tr>
-            <td> 列宽 </td>
-            <td>
-              <a href="javascript:;" id="id" data-type="text" data-pk="1" data-original-title=""> temp_id_1 </a>
-            </td>
-            <td>
-              <span class="text-muted"> 单位为：像素</span>
-            </td>
-          </tr>
-          <tr>
-            <td> 对齐方式 </td>
-            <td>
-              <a href="javascript:;" id="id" data-type="text" data-pk="1" data-original-title=""> temp_id_1 </a>
-            </td>
-            <td>
-              <span class="text-muted"> 左，中，右 </span>
-            </td>
-          </tr>
-          <tr>
-            <td> 排序方式 </td>
-            <td>
-              <a href="javascript:;" id="id" data-type="text" data-pk="1" data-original-title=""> temp_id_1 </a>
-            </td>
-            <td>
-              <span class="text-muted"> 客户端或者服务端 </span>
-            </td>
-          </tr>
-          <tr>
-            <td> 是否隐藏 </td>
-            <td>
-              <a href="javascript:;" id="id" data-type="text" data-pk="1" data-original-title=""> temp_id_1 </a>
-            </td>
-            <td>
-              <span class="text-muted"> 设置隐藏的列将不会显示在页面上 </span>
-            </td>
-          </tr>
+      <form class="form-horizontal">
+        <div class="tab-pane fade active in" id="tab_1_1">
+          <table id="button" class="table table-bordered table-striped">
+            <tbody>
+            <tr>
+              <td> 字段 </td>
+              <td>
+                <a href="javascript:;"  name="field">{{nodeProperties.field}}</a>
+                <input [(ngModel)]="nodeProperties.field" id="field" name="field"/>
+              </td>
+              <td>
+                <span class="text-muted"> 设置列与数据源绑定的字段名称 </span>
+              </td>
+            </tr>
+            <tr>
+              <td> 列标题 </td>
+              <td>
+                <a href="javascript:;" id="title" data-type="text" data-pk="1" data-original-title=""> {{nodeProperties.header}} </a>
+                <input [(ngModel)]="nodeProperties.header" name="title"/>
+              </td>
+              <td>
+                <span class="text-muted"> </span>
+              </td>
+            </tr>
+            <tr>
+              <td> 列宽 </td>
+              <td>
+                <a href="javascript:;" id="colwidth" data-type="text" data-pk="1" data-original-title=""> {{nodeProperties.colwidth}} </a>
+              </td>
+              <td>
+                <span class="text-muted"> 单位为：像素</span>
+              </td>
+            </tr>
+            <tr>
+              <td> 对齐方式 </td>
+              <td>
+                <a href="javascript:;" id="colalign" data-type="text" data-pk="1" data-original-title=""> {{nodeProperties.colalign}} </a>
+              </td>
+              <td>
+                <span class="text-muted"> 左，中，右 </span>
+              </td>
+            </tr>
+            <tr>
+              <td> 排序方式 </td>
+              <td>
+                <a href="javascript:;" id="colsorting" data-type="text" data-pk="1" data-original-title=""> {{nodeProperties.colsorting}} </a>
+              </td>
+              <td>
+                <span class="text-muted"> 客户端或者服务端 </span>
+              </td>
+            </tr>
+            <tr>
+              <td> 是否隐藏 </td>
+              <td>
+                <a href="javascript:;" id="colhide" data-type="text" data-pk="1" data-original-title=""> {{nodeProperties.colhide}} </a>
+              </td>
+              <td>
+                <span class="text-muted"> 设置隐藏的列将不会显示在页面上 </span>
+              </td>
+            </tr>
 
-          </tbody>
-        </table>
-      </div>
-      <div class="tab-pane fade" id="tab_1_2">
-        <table id=" buttonEvent" class="table table-bordered table-striped">
-          <tbody>
-          <tr>
-            <td> 自定义字段 <input type="checkbox"/></td>
-            <td>
-              <table class="table table-bordered table-responsive table-condensed">
-                <thead>
-                <tr class="text-center">
-                  <td>数据值</td>
-                  <td>显示值</td>
-                  <td>背景颜色</td>
-                  <td>字体颜色</td>
-                  <td width="50"></td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="text-center">
-                  <td>status</td>
-                  <td>状态</td>
-                  <td>green</td>
-                  <td>#f1f2f3</td>
-                  <td><a class="btn btn-warning" href="javascript:;"><i class="fa fa-remove font-red"></i> 删除</a></td>
-                </tr>
-                <tr class="text-center">
-                  <td><input class="form-control" type="text"/></td>
-                  <td><input class="form-control" type="text"/></td>
-                  <td><input class="form-control" type="text"/></td>
-                  <td><input class="form-control" type="text"/></td>
-                  <td><a class="btn btn-success" href="javascript:;"><i class="fa fa-plus green"></i> 添加</a> </td>
-                </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane fade" id="tab_1_2">
+          <table id=" buttonEvent" class="table table-bordered table-striped">
+            <tbody>
+            <tr>
+              <td> 自定义字段 <input type="checkbox"/></td>
+              <td>
+                <table class="table table-bordered table-responsive table-condensed">
+                  <thead>
+                  <tr class="text-center">
+                    <td>数据值</td>
+                    <td>显示值</td>
+                    <td>背景颜色</td>
+                    <td>字体颜色</td>
+                    <td width="50"></td>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr class="text-center">
+                    <td>status</td>
+                    <td>状态</td>
+                    <td>green</td>
+                    <td>#f1f2f3</td>
+                    <td><a class="btn btn-warning" href="javascript:;"><i class="fa fa-remove font-red"></i> 删除</a></td>
+                  </tr>
+                  <tr class="text-center">
+                    <td><input class="form-control" type="text"/></td>
+                    <td><input class="form-control" type="text"/></td>
+                    <td><input class="form-control" type="text"/></td>
+                    <td><input class="form-control" type="text"/></td>
+                    <td><a class="btn btn-success" href="javascript:;"><i class="fa fa-plus green"></i> 添加</a> </td>
+                  </tr>
 
-                </tbody>
-              </table>
-            </td>
-            <td>
-              <span class="text-muted"> 对于一列上的数据，可以设置在不同数据结果下，显示在页面中背景、字体颜色，转换值 </span>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+                <span class="text-muted"> 对于一列上的数据，可以设置在不同数据结果下，显示在页面中背景、字体颜色，转换值 </span>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+
     </div>
   </div>
 </div>

@@ -7,6 +7,7 @@ interface BroadcasterEvent {
   key: any;
   value: any;
 }
+
 @Injectable()
 export class Broadcaster {
   private _event: Subject<BroadcasterEvent>;

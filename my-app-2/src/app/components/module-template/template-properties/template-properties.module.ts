@@ -11,6 +11,7 @@ import { ApiTemplatePropertiesComponent } from './api-template-properties/api-te
 import { ApiItemTemplatePropertiesComponent } from './api-item-template-properties/api-item-template-properties.component';
 import { IsPagingPropertiesComponent } from './is-paging-properties/is-paging-properties.component';
 import { PagingSettingTemplatePropertiesComponent } from './paging-setting-template-properties/paging-setting-template-properties.component';
+import { FormsModule } from '@angular/forms';
 
 export const CHILD_ROUTES: Routes = [
   { path : '', component : TemplatePropertiesComponent },
@@ -34,7 +35,7 @@ export const CHILD_ROUTES: Routes = [
     IsPagingPropertiesComponent,
     PagingSettingTemplatePropertiesComponent
   ],
-  imports : [RouterModule.forChild(CHILD_ROUTES)],
+  imports : [RouterModule.forChild(CHILD_ROUTES), FormsModule],
   exports : [RouterModule]
 })
 

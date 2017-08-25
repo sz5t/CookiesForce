@@ -1,5 +1,6 @@
 // 系统模块
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 // 导入加载模块
 import { LoginComponent } from './login/login.component';
@@ -16,6 +17,7 @@ import { ErrorComponent } from './components/sys-exceptions/code500/error.compon
 // 导入路由配置
 import { AppRouter } from './routes/all.routes';
 import {BreadcrumbComponent} from './layout/container/main/breadcrumb/breadcrumb.component';
+import {Broadcaster} from './broadcaster/broadcaster';
 @NgModule({
   // 声明模块
   declarations: [
@@ -33,10 +35,11 @@ import {BreadcrumbComponent} from './layout/container/main/breadcrumb/breadcrumb
     BreadcrumbComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRouter // 设置路由信息
   ],
-  providers: [],
+  providers: [Broadcaster],
   bootstrap: [AppComponent] // 设置启动模块
 })
 export class AppModule { }

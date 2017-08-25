@@ -10,18 +10,18 @@ export class ButtonTemplatePropertiesComponent implements OnInit, OnDestroy, OnC
   constructor() { }
 
   ngOnInit() {
-    console.log('init');
+
   }
   ngOnDestroy(){
-    console.log('destory');
+
   }
   ngOnChanges(){
-    console.log('onchange');
+
   }
   ngAfterContentInit(){
-    console.log('ngAfterContentInit');
+
   }
   ngAfterViewInit(){
-    console.log('ngAfterViewInit');
+
   }
 }
