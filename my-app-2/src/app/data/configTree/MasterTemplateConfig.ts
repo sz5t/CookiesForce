@@ -177,7 +177,16 @@ export class MasterTemplateConfig {
           opened: true,
           disabled: false,
           selected: false,
-        }, type: 'columnConfig'
+        }, type: 'columnConfig',
+           data:{
+          'field': '',
+          'header': '启用状态',
+          'colwidth': '100',
+          'colalign': 'center',
+          'coltype': 'ro',
+          'colhide': 'false',
+          'customSetting':[],
+          'colsorting': 'server'}
       },
       // columnConfigs child
       {
@@ -186,7 +195,16 @@ export class MasterTemplateConfig {
           opened: true,
           disabled: false,
           selected: false,
-        }, type: 'field'
+        }, type: 'field',
+        data:{
+          'field': '',
+          'header': '数据列...',
+          'colwidth': '100',
+          'colalign': 'center',
+          'coltype': 'ro',
+          'colhide': 'false',
+          'customSetting':[],
+          'colsorting': 'server'}
       },
       {
         id: 'toolbarsConfig_1_col2', text: '数据列...', icon: '', li_attr: '', a_attr: '', parent: 'viewCfg_1_columnConfigs', readonly: true, value: null,
@@ -194,7 +212,16 @@ export class MasterTemplateConfig {
           opened: true,
           disabled: false,
           selected: false,
-        }, type: 'field'
+        }, type: 'field',
+        data:{
+          'field': '',
+          'header': '数据列...',
+          'colwidth': '100',
+          'colalign': 'center',
+          'coltype': 'ro',
+          'colhide': 'false',
+          'customSetting':[],
+          'colsorting': 'server'}
       },
       {
         id: 'toolbarsConfig_1_col3', text: '数据列...', icon: '', li_attr: '', a_attr: '', parent: 'viewCfg_1_columnConfigs', readonly: true, value: null,
@@ -202,7 +229,16 @@ export class MasterTemplateConfig {
           opened: true,
           disabled: false,
           selected: false,
-        }, type: 'field'
+        }, type: 'field',
+        data:{
+          'field': '',
+          'header': '数据列...',
+          'colwidth': '100',
+          'colalign': 'center',
+          'coltype': 'ro',
+          'colhide': 'false',
+          'customSetting':[],
+          'colsorting': 'server'}
       },
       {
         id: 'toolbarsConfig_1_col4', text: '数据列...', icon: '', li_attr: '', a_attr: '', parent: 'viewCfg_1_columnConfigs', readonly: true, value: null,
@@ -210,7 +246,16 @@ export class MasterTemplateConfig {
           opened: true,
           disabled: false,
           selected: false,
-        }, type: 'field'
+        }, type: 'field',
+        data:{
+          'field': '',
+          'header': '数据列...',
+          'colwidth': '100',
+          'colalign': 'center',
+          'coltype': 'ro',
+          'colhide': 'false',
+          'customSetting':[],
+          'colsorting': 'server'}
       },
       {
         id: 'viewCfg_1_columnConfigClass', text: '数据源API', icon: '', li_attr: '', a_attr: '', parent: 'pageConfigs_1_viewCfg', readonly: true, value: null,

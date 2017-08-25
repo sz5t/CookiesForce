@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Broadcaster } from '../../../../broadcaster/broadcaster';
 
 @Component({
   selector: 'app-field-template-properties',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FieldTemplatePropertiesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private broadcaster: Broadcaster) { }
 
   ngOnInit() {
+    this.broadcaster.on<string>('node_properties')
+      .subscribe(message => {
+        console.log(message);
+      });
   }
 
 }

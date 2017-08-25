@@ -75,6 +75,6 @@ export class LoginComponent implements OnInit{
   }
   login(){
     console.log('login');
-    this.router.navigateByUrl('/app/module-setting');
+    this.router.navigate(['/app/module-setting']);
   }
 }
