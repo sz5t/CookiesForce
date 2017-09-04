@@ -140,7 +140,28 @@ export class NodeType {
       opened: true,
       disabled: false,
       selected: false,
-    }, type: 'button'
+    },
+    type: 'button',
+    data: {
+      id: 'refresh',
+      type: 'button',
+      img: 'fa fa-flash',
+      disImg: '',
+      text: '删除',
+      htype: 'confirm',
+      initState: true,
+      events: {
+        title: '确认提示',
+        text: '是否要删除选中记录？',
+        type: 'confirm-waning',
+        execution: {
+          api: '',
+          method: '',
+          keyID: '',
+          callback: ''
+        }
+      }
+    }
   };
   public static fieldNode = {
     text: '列', icon: '', li_attr: '', a_attr: '', parent: 'viewCfg_1_columnConfigs', readonly: true, value: null,
@@ -148,7 +169,18 @@ export class NodeType {
       opened: true,
       disabled: false,
       selected: false,
-    }, type: 'field'
+    },
+    type: 'field',
+    data: {
+      'field': 'column 1',
+      'header': '启用状态',
+      'colwidth': '100',
+      'colalign': 'center',
+      'coltype': 'ro',
+      'colhide': 'false',
+      'customSetting': [],
+      'colsorting': 'server'
+    }
   };
   public static sortNode = {
     text: '字段', icon: '', li_attr: '', a_attr: '', parent: 'viewCfg_1_sortConfig', readonly: true, value: null,
@@ -166,3 +198,14 @@ export class NodeType {
   sort: any;
   constructor() {}
 }
+export interface IFieldNodeType {
+  field: String;
+  header: String;
+  colwidth: String;
+  colalign: String;
+  coltype: String;
+  colhide: String;
+  customSetting: any[];
+  colsorting: String;
+}
+

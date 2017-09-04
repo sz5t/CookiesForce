@@ -13,7 +13,7 @@ import { FuncEditComponent } from './func-edit/func-edit.component';
 export const CHILD_ROUTES: Routes = [
   { path : '', component : ModuleSettingComponent},
   { path : 'create', component: ModuleCreateComponent, children:[
-    {path : '', loadChildren : './func-properties/func-properties.module#FuncPropertiesComponent'},
+    {path : '', loadChildren : './func-properties/func-properties.module#FuncPropertiesModule'},
   ]},
   { path : 'edit:id', component: ModuleEditComponent},
   { path : 'func-create', component: FuncCreateComponent},

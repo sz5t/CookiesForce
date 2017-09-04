@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {Router} from '@angular/router';
 import {MasterTemplateConfig} from '../../../data/configTree/MasterTemplateConfig';
 import {NodeType} from '../../../data/configTree/NodeType';
@@ -11,7 +11,8 @@ declare let jQuery: any;
 @Component({
   selector: 'app-template-create',
   templateUrl: './template-create.component.html',
-  styleUrls: ['./template-create.component.css']
+  styleUrls: ['./template-create.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TemplateCreateComponent implements OnInit {
 
@@ -134,8 +135,12 @@ export class TemplateCreateComponent implements OnInit {
     };
     $('#SettingTree').on('select_node.jstree', (e, data) => {
       let nodeData = data.node.data;
-      const promise = this.router.navigate(['/app/module-template/create/template-properties/'+ data.node.type + '']);
-      promise.then(() =>{this.broadcaster.broadcast('node_properties', data.node.data);});
+      const promise = this.router.navigate(['/app/module-template/create/template-properties/' + data.node.type + '/' + data.node.id]);
+      promise.then(() =>{
+        //console.log(data.node.data);
+        this.broadcaster.broadcast('node_properties', data.node.data);
+        // console.log(instance.get_json());
+      });
 
       //allTreeJson = instance.get_json();
       /*console.log(allTreeJson);
@@ -513,29 +518,6 @@ export class TemplateCreateComponent implements OnInit {
         const name = $(this).attr('data-temp');
         $('#chooseTemplateName').html(name);
       });
-    });
-
-
-    //editor
-    // $.fn.editable.defaults.mode = 'inline';
-    $.fn.editable.defaults.inputclass = 'form-control';
-    // $.fn.editable.defaults.url = '/post';
-    $('#id').editable({
-      // url: '/post',
-      inputclass: 'form-control',
-      type: 'text',
-      name: 'id',
-      title: '请输入唯一ID'
-    });
-    $('#type').editable({
-      // prepend: 'button',
-      inputclass: 'form-control',
-      source: [{value: 'button', text: '按钮'}, {value: 'separator', text: '分隔符'}]
-    });
-    $('#text').editable({
-      type: 'text',
-      name: 'text',
-      title: '请输入按钮内容'
     });
   }
 }

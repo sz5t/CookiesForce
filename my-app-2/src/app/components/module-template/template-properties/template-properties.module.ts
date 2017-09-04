@@ -1,8 +1,8 @@
 /**
  * Created by zhaoxinlei on 2017/7/28.
  */
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {Injectable, NgModule} from '@angular/core';
+import {ActivatedRouteSnapshot, CanDeactivate, RouterModule, RouterStateSnapshot, Routes} from '@angular/router';
 import { TemplatePropertiesComponent } from './template-properties.component';
 import { ButtonTemplatePropertiesComponent } from './button-template-properties/button-template-properties.component';
 import { FieldTemplatePropertiesComponent } from './field-template-properties/field-template-properties.component';
@@ -12,17 +12,36 @@ import { ApiItemTemplatePropertiesComponent } from './api-item-template-properti
 import { IsPagingPropertiesComponent } from './is-paging-properties/is-paging-properties.component';
 import { PagingSettingTemplatePropertiesComponent } from './paging-setting-template-properties/paging-setting-template-properties.component';
 import { FormsModule } from '@angular/forms';
+import {Observable} from 'rxjs/Observable';
+import {TemplateBase} from "./templateBase";
+
+export interface CanDeactivateComponent {
+  canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
+}
+
+@Injectable()
+export class DeactivateGuardService implements CanDeactivate<CanDeactivateComponent>{
+  canDeactivate(component: CanDeactivateComponent,
+                currentRouter: ActivatedRouteSnapshot,
+                currentState: RouterStateSnapshot,
+                nextState?: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
+          // 路由守卫，在此设置具体关闭路由时，要触发的操作
+          return new Observable((observer) => {observer.next(true); observer.complete()});
+  }
+}
 
 export const CHILD_ROUTES: Routes = [
   { path : '', component : TemplatePropertiesComponent },
-  { path : 'button', component : ButtonTemplatePropertiesComponent },
-  { path : 'field', component: FieldTemplatePropertiesComponent },
-  { path : 'sort', component: SortTemplatePropertiesComponent },
-  { path : 'dataSourceAPI', component: ApiTemplatePropertiesComponent},
-  { path : 'dataSourceItemAPI', component: ApiItemTemplatePropertiesComponent},
-  { path : 'isEnablePaging', component: IsPagingPropertiesComponent},
-  { path : 'pagingSetting', component: PagingSettingTemplatePropertiesComponent},
+  { path : 'button/:id', component : ButtonTemplatePropertiesComponent },
+  { path : 'field/:id', component: FieldTemplatePropertiesComponent, canDeactivate: [DeactivateGuardService] },
+  { path : 'sort/:id', component: SortTemplatePropertiesComponent },
+  { path : 'dataSourceAPI/:id', component: ApiTemplatePropertiesComponent},
+  { path : 'dataSourceItemAPI/:id', component: ApiItemTemplatePropertiesComponent},
+  { path : 'isEnablePaging/:id', component: IsPagingPropertiesComponent},
+  { path : 'pagingSetting/:id', component: PagingSettingTemplatePropertiesComponent},
 ];
+
+
 
 @NgModule({
   declarations:[
@@ -35,6 +54,7 @@ export const CHILD_ROUTES: Routes = [
     IsPagingPropertiesComponent,
     PagingSettingTemplatePropertiesComponent
   ],
+  providers:[DeactivateGuardService],
   imports : [RouterModule.forChild(CHILD_ROUTES), FormsModule],
   exports : [RouterModule]
 })
