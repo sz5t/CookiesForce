@@ -27,6 +27,9 @@ export class MasterTemplateConfig {
           opened: true,
           disabled: true,
           selected: false,
+        },
+        data:{
+          totalArea: {}
         }
       },
       // totalAreaChildren
@@ -43,6 +46,9 @@ export class MasterTemplateConfig {
           opened: true,
           disabled: true,
           selected: false,
+        },
+        data: {
+          classType: 'Layout'
         }
       },
       {
@@ -58,6 +64,9 @@ export class MasterTemplateConfig {
           opened: true,
           disabled: true,
           selected: false,
+        },
+        data: {
+          parent: 'view_Name'
         }
       },
       {
@@ -73,6 +82,9 @@ export class MasterTemplateConfig {
           opened: true,
           disabled: true,
           selected: false,
+        },
+        data: {
+          pattern: '1C'
         }
       },
       // pageConfigs
@@ -89,93 +101,14 @@ export class MasterTemplateConfig {
           opened: true,
           disabled: false,
           selected: false,
+        },
+        data: {
+          pageConfigs: []
         }
       },
-      // pageConfigsChildren
       {
-        id: 'pageConfigs_1_classType',
-        text: '布局类型  <span class="badge badge-default">: Cell</span>',
-        icon: 'fa fa-copy',
-        li_attr: '',
-        a_attr: '',
-        parent: 'masterTemplateConfig_1_pageConfigs',
-        readonly: true,
-        value: null,
-        state: {
-          opened: true,
-          disabled: false,
-          selected: false,
-        },
-        'type': 'node'
-      },
-      {
-        id: 'pageConfigs_1_id',
-        text: '布局标志 <span class="badge badge-default">: a</span>',
-        icon: 'fa fa-paperclip',
-        li_attr: '',
-        a_attr: '',
-        parent: 'masterTemplateConfig_1_pageConfigs',
-        readonly: true,
-        value: null,
-        state: {
-          opened: true,
-          disabled: true,
-          selected: false,
-        },
-        'type': 'node'
-      },
-      {
-        id: 'pageConfigs_1_text',
-        text: '标题',
-        icon: 'fa fa-header',
-        li_attr: '',
-        a_attr: '',
-        parent: 'masterTemplateConfig_1_pageConfigs',
-        readonly: false,
-        value: null,
-        state: {
-          opened: true,
-          disabled: false,
-          selected: false,
-        },
-        'type': 'node'
-      },
-      {
-        id: 'pageConfigs_1_header',
-        text: '是否显示标题',
-        icon: 'fa fa-ban',
-        li_attr: '',
-        a_attr: '',
-        parent: 'masterTemplateConfig_1_pageConfigs',
-        readonly: false,
-        value: null,
-        state: {
-          opened: true,
-          disabled: false,
-          selected: false,
-        },
-        'type': 'node'
-      },
-      {
-        id: 'pageConfig_1_pagingBarName',
-        text: '分页对象 <span class="badge badge-default">: pagingBar_1</span>',
-        icon: 'fa fa-flag',
-        li_attr: '',
-        a_attr: '',
-        parent: 'masterTemplateConfig_1_pageConfigs',
-        readonly: true,
-        value: null,
-        state: {
-          opened: true,
-          disabled: true,
-          selected: false,
-        },
-        'type': 'node'
-      },
-      // viewCfg
-      {
-        id: 'pageConfigs_1_viewCfg',
-        text: '页面配置',
+        id: 'masterTemplateConfig_1_pageConfigs_1',
+        text: '区域 1',
         icon: '',
         li_attr: '',
         a_attr: '',
@@ -186,6 +119,124 @@ export class MasterTemplateConfig {
           opened: true,
           disabled: false,
           selected: false,
+        },
+        data: {
+          pageConfigsObj: {}
+        }
+      },
+      // pageConfigsChildren
+      {
+        id: 'pageConfigs_1_classType',
+        text: '布局类型  <span class="badge badge-default">: Cell</span>',
+        icon: 'fa fa-copy',
+        li_attr: '',
+        a_attr: '',
+        parent: 'masterTemplateConfig_1_pageConfigs_1',
+        readonly: true,
+        value: null,
+        state: {
+          opened: true,
+          disabled: false,
+          selected: false,
+        },
+        type: 'node',
+        data: {
+          classType: 'cell'
+        }
+      },
+      {
+        id: 'pageConfigs_1_id',
+        text: '布局标志 <span class="badge badge-default">: a</span>',
+        icon: 'fa fa-paperclip',
+        li_attr: '',
+        a_attr: '',
+        parent: 'masterTemplateConfig_1_pageConfigs_1',
+        readonly: true,
+        value: null,
+        state: {
+          opened: true,
+          disabled: true,
+          selected: false,
+        },
+        type: 'node',
+        data:{
+          id: 'a'
+        }
+      },
+      {
+        id: 'pageConfigs_1_text',
+        text: '标题',
+        icon: 'fa fa-header',
+        li_attr: '',
+        a_attr: '',
+        parent: 'masterTemplateConfig_1_pageConfigs_1',
+        readonly: false,
+        value: null,
+        state: {
+          opened: true,
+          disabled: false,
+          selected: false,
+        },
+        type: 'node',
+        data:{
+          text: '标题'
+        }
+      },
+      {
+        id: 'pageConfigs_1_header',
+        text: '是否显示标题',
+        icon: 'fa fa-ban',
+        li_attr: '',
+        a_attr: '',
+        parent: 'masterTemplateConfig_1_pageConfigs_1',
+        readonly: false,
+        value: null,
+        state: {
+          opened: true,
+          disabled: false,
+          selected: false,
+        },
+        type: 'node',
+        data:{
+          header: true
+        }
+      },
+      {
+        id: 'pageConfig_1_pagingBarName',
+        text: '分页对象 <span class="badge badge-default">: pagingBar_1</span>',
+        icon: 'fa fa-flag',
+        li_attr: '',
+        a_attr: '',
+        parent: 'masterTemplateConfig_1_pageConfigs_1',
+        readonly: true,
+        value: null,
+        state: {
+          opened: true,
+          disabled: true,
+          selected: false,
+        },
+        type: 'node',
+        data:{
+          pagingBarName: 'name_pagingbar' // auto generate
+        }
+      },
+      // viewCfg
+      {
+        id: 'pageConfigs_1_viewCfg',
+        text: '组件配置',
+        icon: '',
+        li_attr: '',
+        a_attr: '',
+        parent: 'masterTemplateConfig_1_pageConfigs_1',
+        readonly: true,
+        value: null,
+        state: {
+          opened: true,
+          disabled: false,
+          selected: false,
+        },
+        data:{
+          viewCfg: {}
         }
       },
       // viewCfgChildren
@@ -203,7 +254,10 @@ export class MasterTemplateConfig {
           disabled: true,
           selected: false,
         },
-        'type': 'node'
+        type: 'node',
+        data:{
+          classType: 'Grid_View'
+        }
       },
       {
         id: 'viewCfg_1_id',
@@ -219,7 +273,10 @@ export class MasterTemplateConfig {
           disabled: true,
           selected: false,
         },
-        'type': 'node'
+        type: 'node',
+        data:{
+          id: 'a'
+        }
       },
       {
         id: 'viewCfg_1_pagingBarName',
@@ -234,6 +291,9 @@ export class MasterTemplateConfig {
           opened: true,
           disabled: true,
           selected: false,
+        },
+        data:{
+          pagingBarName: 'name_pagingbar'
         }
       },
       {
@@ -250,7 +310,10 @@ export class MasterTemplateConfig {
           disabled: false,
           selected: false,
         },
-        type: 'toolbarConfig'
+        type: 'toolbarConfig',
+        data: {
+          toolbarsConfig: []
+        }
       },
       // toolbarsConfig child
       {
@@ -390,14 +453,7 @@ export class MasterTemplateConfig {
         },
         type: 'columnConfig',
         data: {
-          'field': 'column 1',
-          'header': '启用状态',
-          'colwidth': '100',
-          'colalign': 'center',
-          'coltype': 'ro',
-          'colhide': 'false',
-          'customSetting': [],
-          'colsorting': 'server'
+          columnConfigs: []
         }
       },
       // columnConfigs child
@@ -540,8 +596,10 @@ export class MasterTemplateConfig {
         },
         type: 'sort',
         data:{
-          _sort: '',
-          _order: 'asc'
+          sortConfig:{
+            _sort: '',
+            _order: 'asc'
+          }
         }
       },
       // sortConfig child

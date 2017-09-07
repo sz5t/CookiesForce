@@ -4,7 +4,8 @@ import {MasterTemplateConfig} from '../../../data/configTree/MasterTemplateConfi
 import {NodeType} from '../../../data/configTree/NodeType';
 import {NodeChecker} from '../../../data/configTree/NodeChecker';
 import {App} from '../../../layout/index.component';
-import { Broadcaster } from '../../../broadcaster/broadcaster';
+import {Broadcaster} from '../../../broadcaster/broadcaster';
+import {arrayify} from "tslint/lib/utils";
 
 declare let $: any;
 declare let jQuery: any;
@@ -15,6 +16,8 @@ declare let jQuery: any;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TemplateCreateComponent implements OnInit {
+  P_NODE_TYPE_OBJECT: string[] = ['totalArea', 'viewCfg'];
+  P_NODE_TYPE_ARRAY: string[] = ['pageConfigs', 'toolbarsConfig', 'columnConfigs', 'toolbarsStatusConfig', 'childToolbarEnableConfig'];
 
   constructor(private router: Router, private broadcaster: Broadcaster) {
   }
@@ -136,25 +139,27 @@ export class TemplateCreateComponent implements OnInit {
     $('#SettingTree').on('select_node.jstree', (e, data) => {
       let nodeData = data.node.data;
       const promise = this.router.navigate(['/app/module-template/create/template-properties/' + data.node.type + '/' + data.node.id]);
-      promise.then(() =>{
+      promise.then(() => {
         //console.log(data.node.data);
         this.broadcaster.broadcast('node_properties', data.node.data);
-        // console.log(instance.get_json());
+        console.log(instance.get_json());
+        const total = instance.get_json();
+        const settings = this.generateSettingData(total[0]);
+        console.log('settings', JSON.stringify(settings));
       });
-
       //allTreeJson = instance.get_json();
       /*console.log(allTreeJson);
-      $('#checkJsonTree').jstree({
-        'core': {
-          'themes': {
-            'responsive': true
-          },
-          'check_callback': true,
-          'data': allTreeJson
-        },
-        'types': NodeType.nodeType,
-        'plugins': ['types'],
-      });*/
+       $('#checkJsonTree').jstree({
+       'core': {
+       'themes': {
+       'responsive': true
+       },
+       'check_callback': true,
+       'data': allTreeJson
+       },
+       'types': NodeType.nodeType,
+       'plugins': ['types'],
+       });*/
       //const instance2 = $('#checkJsonTree').jstree(true);
       // instance2.set_type(data.node, 'checkFalse');
       // console.log(instance.get_rules(data.node));
@@ -519,5 +524,73 @@ export class TemplateCreateComponent implements OnInit {
         $('#chooseTemplateName').html(name);
       });
     });
+  }
+
+  private generateSettingData(nodeData: any): any {
+    const currentData = nodeData.data;
+    const currentChildren = nodeData.children;
+
+    if (Array.isArray(currentChildren) && currentChildren.length > 0) {
+      if (currentData.hasOwnProperty('totalArea')) {
+        for (const child of currentChildren) {
+          for (const childDataProp in child.data) {
+            if (child.data.hasOwnProperty(childDataProp)) {
+              currentData['totalArea'][childDataProp] = child.data[childDataProp];
+              if (child.children.length > 0) {
+                currentData['totalArea'][childDataProp] = this.generateSettingData(child);
+              }
+            }
+          }
+        }
+      } else if (currentData.hasOwnProperty('pageConfigs')) {
+        const arr = [];
+        for (const child of currentChildren) {
+          arr.push(this.generateSettingData(child));
+        }
+        return arr;
+      } else if (currentData.hasOwnProperty('pageConfigsObj')) {
+        const pageConfigsObj = {};
+        for (const child of currentChildren) {
+          for (const childDataProp in child.data) {
+            if (child.data.hasOwnProperty(childDataProp)) {
+              pageConfigsObj[childDataProp] = child.data[childDataProp];
+              if (child.children.length > 0) {
+                pageConfigsObj[childDataProp] = this.generateSettingData(child);
+              }
+            }
+          }
+        }
+        return pageConfigsObj;
+      } else if (currentData.hasOwnProperty('viewCfg')) {
+        const viewCfg = {};
+        for (const child of currentChildren) {
+          for (const childDataProp in child.data) {
+            if (child.data.hasOwnProperty(childDataProp)) {
+              viewCfg[childDataProp] = child.data[childDataProp];
+              if (child.children.length > 0) {
+                viewCfg[childDataProp] = this.generateSettingData(child);
+              }
+            }
+          }
+        }
+        return viewCfg;
+      } else if (currentData.hasOwnProperty('columnConfigs')) {
+        const arr = [];
+        for (const child of currentChildren) {
+          arr.push(child.data);
+        }
+        return arr;
+      } else if (currentData.hasOwnProperty('toolbarsConfig')) {
+        const arr = [];
+        for (const child of currentChildren) {
+          arr.push(child.data);
+        }
+        return arr;
+      } else if (nodeData.data.hasOwnProperty('sortConfig')) {
+      } else if (nodeData.data.hasOwnProperty('toolbarsEnabledConfig')) {
+      } else if (nodeData.data.hasOwnProperty('childToolbarEnabledConfig')) {
+      }
+    }
+    return currentData;
   }
 }

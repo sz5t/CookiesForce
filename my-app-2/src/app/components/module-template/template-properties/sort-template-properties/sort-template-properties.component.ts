@@ -13,17 +13,17 @@ export class SortTemplatePropertiesComponent extends TemplateBase implements OnI
     this.nodeProperties = data;
     $('#sort').editable({
       success: (response, newValue) => {
-        this.nodeProperties._sort = newValue;
+        this.nodeProperties.sortConfig._sort = newValue;
       }
     });
     $('#order').editable({
       source:[{text: '升序', value: 'asc'}, {text: '降序', value: 'desc'}],
       success: (response, newValue) => {
-        this.nodeProperties._order = newValue;
+        this.nodeProperties.sortConfig._order = newValue;
       }
     });
-    $('#sort').editable('setValue', this.nodeProperties._sort, false);
-    $('#order').editable('setValue', this.nodeProperties._order, false);
+    $('#sort').editable('setValue', this.nodeProperties.sortConfig._sort, false);
+    $('#order').editable('setValue', this.nodeProperties.sortConfig._order, false);
   };
   constructor(protected broadcaster: Broadcaster) {
     super(broadcaster);
