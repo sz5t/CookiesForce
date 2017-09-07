@@ -45,6 +45,8 @@ export class NodeType {
     'checkRight': {'icon': 'fa fa-check-square font-green-jungle'},
     'checkFalse': {'icon': 'fa fa-remove font-red'},
     'checkWarning': {'icon': 'fa fa-warning icon-state-warning'},
+    'title':{'icon': 'fa fa-header icon-state-success'},
+    'showTitle':{'icon': 'fa fa-ban icon-state-success'}
 
   };
   public static toolbarConfig = {

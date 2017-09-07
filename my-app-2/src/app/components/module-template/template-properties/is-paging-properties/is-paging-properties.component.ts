@@ -1,13 +1,13 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {TemplateBase} from '../templateBase';
-import {Broadcaster} from "../../../../broadcaster/broadcaster";
+import {Broadcaster} from '../../../../broadcaster/broadcaster';
 declare let $: any;
 @Component({
   selector: 'app-is-paging-properties',
   templateUrl: './is-paging-properties.component.html',
   styleUrls: ['./is-paging-properties.component.css']
 })
-export class IsPagingPropertiesComponent extends TemplateBase implements OnInit,OnDestroy {
+export class IsPagingPropertiesComponent extends TemplateBase implements OnInit, OnDestroy {
   broadcastFunc: Function = (data) => {
     this.nodeProperties = data;
     $('#isEnablePaging').editable({

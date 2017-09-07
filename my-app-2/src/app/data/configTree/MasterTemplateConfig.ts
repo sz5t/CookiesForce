@@ -99,7 +99,7 @@ export class MasterTemplateConfig {
         value: null,
         state: {
           opened: true,
-          disabled: false,
+          disabled: true,
           selected: false,
         },
         data: {
@@ -117,7 +117,7 @@ export class MasterTemplateConfig {
         value: null,
         state: {
           opened: true,
-          disabled: false,
+          disabled: true,
           selected: false,
         },
         data: {
@@ -136,7 +136,7 @@ export class MasterTemplateConfig {
         value: null,
         state: {
           opened: true,
-          disabled: false,
+          disabled: true,
           selected: false,
         },
         type: 'node',
@@ -177,7 +177,7 @@ export class MasterTemplateConfig {
           disabled: false,
           selected: false,
         },
-        type: 'node',
+        type: 'title',
         data:{
           text: '标题'
         }
@@ -196,9 +196,9 @@ export class MasterTemplateConfig {
           disabled: false,
           selected: false,
         },
-        type: 'node',
+        type: 'showTitle',
         data:{
-          header: true
+          header: 'true'
         }
       },
       {
@@ -232,7 +232,7 @@ export class MasterTemplateConfig {
         value: null,
         state: {
           opened: true,
-          disabled: false,
+          disabled: true,
           selected: false,
         },
         data:{
