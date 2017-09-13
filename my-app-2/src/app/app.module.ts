@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import {CommonModule} from '@angular/common';
 // 导入加载模块
 import { LoginComponent } from './login/login.component';
 import { IndexComponent } from './layout/index.component';
@@ -18,6 +19,7 @@ import { ErrorComponent } from './components/sys-exceptions/code500/error.compon
 import { AppRouter } from './routes/all.routes';
 import {BreadcrumbComponent} from './layout/container/main/breadcrumb/breadcrumb.component';
 import {Broadcaster} from './broadcaster/broadcaster';
+
 @NgModule({
   // 声明模块
   declarations: [

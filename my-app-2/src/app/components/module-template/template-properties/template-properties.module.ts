@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import { TitleTemplatePropertiesComponent } from './title-template-properties/title-template-properties.component';
 import { ShowTitleTemplatePropertiesComponent } from './show-title-template-properties/show-title-template-properties.component';
+import {CommonModule} from "@angular/common";
 
 export interface CanDeactivateComponent {
   canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
@@ -61,7 +62,7 @@ export const CHILD_ROUTES: Routes = [
     ShowTitleTemplatePropertiesComponent
   ],
   providers:[DeactivateGuardService],
-  imports : [RouterModule.forChild(CHILD_ROUTES), FormsModule],
+  imports : [RouterModule.forChild(CHILD_ROUTES), FormsModule, CommonModule],
   exports : [RouterModule]
 })
 

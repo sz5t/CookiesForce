@@ -24,7 +24,8 @@ const ROUTES: Routes = [
     {path : 'sys-dashbroad', loadChildren : '../components/sys-dashbroad/sys-dashbroad.module#SysDashbroadModule'},
     {path : 'project-info' , loadChildren : '../components/project-info/project-info.module#ProjectInfoModule'},
     {path : 'module-template' , loadChildren : '../components/module-template/module-template.module#ModuleTemplateModule'},
-    {path : 'breadcrumb/:id' , component: BreadcrumbComponent, outlet: 'breadcrumb'}
+    {path : 'breadcrumb/:id' , component: BreadcrumbComponent, outlet: 'breadcrumb'},
+    {path : 'modelling-setting', loadChildren: '../components/modelling-setting/modelling-setting.module#ModellingSettingModule'}
   ]},
 ];
 

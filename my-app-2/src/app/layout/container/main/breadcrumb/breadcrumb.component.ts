@@ -38,6 +38,7 @@ BREADCRUMBS.set('template-edit',   new Breadcrumb('template-edit',    {title: '�
 BREADCRUMBS.set('template-custom', new Breadcrumb('template-custom',    {title: '自定义模版' , desc : '' , breadcrumbs:['系统首页', '模块管理', '自定义模版']}));
 BREADCRUMBS.set('func-create', new Breadcrumb('func-create',    {title: '创建功能' , desc : '创建一项新的功能' , breadcrumbs:['系统首页', '模块管理', '创建功能']}));
 BREADCRUMBS.set('func-edit', new Breadcrumb('func-edit',    {title: '编辑功能' , desc : '编辑一项功能' , breadcrumbs:['系统首页', '模块管理', '编辑功能']}));
+BREADCRUMBS.set('modelling-data', new Breadcrumb('modelling-data',    {title: '数据建模' , desc : '创建应用程序的访问资源' , breadcrumbs:['系统首页', '建模管理', '数据建模']}));
 
 
 @Component({

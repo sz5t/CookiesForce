@@ -372,7 +372,15 @@ export class MasterTemplateConfig {
           text: '添加',
           htype: 'window',
           initState: true,
-          totalArea: {}
+          totalArea: {},
+          events: {
+            execution: {
+              api: '',
+              method: '',
+              keyID: '',
+              callback: ''
+            }
+          }
         }
       },
       {
@@ -391,7 +399,7 @@ export class MasterTemplateConfig {
         },
         type: 'button',
         data: {
-          id: 'refresh',
+          id: 'del',
           type: 'button',
           img: 'fa fa-flash',
           disImg: '',
@@ -404,7 +412,7 @@ export class MasterTemplateConfig {
             type: 'confirm-waning',
             execution: {
               api: '',
-              method: '',
+              method: 'delete',
               keyID: '',
               callback: ''
             }
@@ -434,7 +442,15 @@ export class MasterTemplateConfig {
           text: '查询',
           htype: 'window',
           initState: true,
-          totalArea: {}
+          totalArea: {},
+          events: {
+            execution: {
+              api: '',
+              method: '',
+              keyID: '',
+              callback: ''
+            }
+          }
         }
       },
       {
