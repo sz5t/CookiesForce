@@ -144,26 +144,29 @@ export class NodeType {
       selected: false,
     },
     type: 'button',
-    data: {
-      id: 'refresh',
-      type: 'button',
-      img: 'fa fa-flash',
-      disImg: '',
-      text: '删除',
-      htype: 'confirm',
-      initState: true,
-      events: {
-        title: '确认提示',
-        text: '是否要删除选中记录？',
-        type: 'confirm-waning',
-        execution: {
-          api: '',
-          method: '',
-          keyID: '',
-          callback: ''
-        }
-      }
-    }
+    data: [
+      { text: 'ID', name: 'id', value: '', desc: ''},
+      { text: '按钮类型', name: 'type', value: 'button', desc: ''},
+      { text: '启用状态图标', name: 'img', value: '', desc: ''},
+      { text: '禁用状态图标', name: 'disImg', value: '', desc: ''},
+      { text: '按钮内容', name: 'text', value: '', desc: ''},
+      { text: '触发方式', name: 'htype', value: 'common', desc: ''},
+      { text: '初始状态', name: 'initState', value: true, desc: ''},
+      { text: '弹出窗体', name: 'totalArea', value: {}, desc: ''},
+      { text: '事件设置', name: 'events', value: [
+        { text: '提示标题', name: 'title', value: '', desc: ''},
+        { text: '提示信息', name: 'text', value: '', desc: ''},
+        { text: '提示类型', name: 'type', value: 'confirm-warning', desc: ''},
+        { text: '事件执行', name: 'execution', value: [
+          { text: '执行API', name: 'api', value: 'refresh', desc: ''},
+          { text: '执行方式', name: 'method', value: 'refresh', desc: ''},
+          { text: '主键', name: 'keyId', value: 'refresh', desc: ''},
+          { text: '参数', name: 'paramMapping', value: [
+            { text: '参数名称', name: '', value: '', desc: ''},
+          ], desc: ''},
+        ], desc: ''},
+      ], desc: ''},
+    ]
   };
   public static fieldNode = {
     text: '列', icon: '', li_attr: '', a_attr: '', parent: 'viewCfg_1_columnConfigs', readonly: true, value: null,
@@ -173,16 +176,23 @@ export class NodeType {
       selected: false,
     },
     type: 'field',
-    data: {
-      'field': 'column 1',
-      'header': '启用状态',
-      'colwidth': '100',
-      'colalign': 'center',
-      'coltype': 'ro',
-      'colhide': 'false',
-      'customSetting': [],
-      'colsorting': 'server'
-    }
+    data: [
+      { text: '字段', name: 'field', value: 'column', desc: ''},
+      { text: '标题', name: 'header', value: '列', desc: ''},
+      { text: '宽度', name: 'colwidth', value: 100, desc: ''},
+      { text: '列类型', name: 'coltype', value: 'ro', desc: ''},
+      { text: '对齐方式', name: 'colalign', value: 'center', desc: ''},
+      { text: '是否隐藏', name: 'colhide', value: false, desc: ''},
+      { text: '自定义列', name: 'customSetting', value: [
+        [
+          { text: '字段原始值', name: 'value', value: '', desc: ''},
+          { text: '背景色', name: 'bgcolor', value: '', desc: ''},
+          { text: '字体颜色', name: 'fontcolor', value: '', desc: ''},
+          { text: '字段转换值', name: 'valueas', value: '', desc: ''}
+        ]
+      ], desc: ''},
+      { text: '排序方式', name: 'colsorting', value: 'server', desc: ''}
+    ]
   };
   public static sortNode = {
     text: '字段', icon: '', li_attr: '', a_attr: '', parent: 'viewCfg_1_sortConfig', readonly: true, value: null,
@@ -190,7 +200,12 @@ export class NodeType {
       opened: true,
       disabled: false,
       selected: false,
-    }, type: 'sort'
+    },
+    type: 'sort',
+    data:[
+      { text: '排序字段', name: '_sort', value: '', desc: ''},
+      { text: '排序方式', name: '_order', value: 'asc', desc: ''},
+    ]
   };
   toolbarConfig: any;
   button: any;

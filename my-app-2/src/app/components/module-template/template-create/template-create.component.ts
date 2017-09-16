@@ -4,6 +4,7 @@ import {Broadcaster} from '../../../broadcaster/broadcaster';
 import {App} from '../../../layout/index.component';
 import {MasterTemplateConfig} from "../../../data/configTree/MasterTemplateConfig";
 import {NodeType} from "../../../data/configTree/NodeType";
+import {current} from "codelyzer/util/syntaxKind";
 declare let $: any;
 declare let jQuery: any;
 @Component({
@@ -12,7 +13,7 @@ declare let jQuery: any;
   styleUrls: ['./template-create.component.css'],
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TemplateCreateComponent implements OnInit, OnChanges {
+export class TemplateCreateComponent implements OnInit {
   /*P_NODE_TYPE_OBJECT: string[] = ['totalArea', 'viewCfg'];
   P_NODE_TYPE_ARRAY: string[] = ['pageConfigs', 'toolbarsConfig', 'columnConfigs', 'toolbarsStatusConfig', 'childToolbarEnableConfig'];
   subNodeData: any;
@@ -612,57 +613,51 @@ export class TemplateCreateComponent implements OnInit, OnChanges {
         toolbar: '#toolbar',                //工具按钮用哪个容器
         striped: true,                      //是否显示行间隔色
         cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
-        pagination: true,                   //是否显示分页（*）
-        sortable: false,                     //是否启用排序
-        sortOrder: 'asc',                   //排序方式
-        queryParams: bsTable.queryParams,   //传递参数（*）
+        // pagination: true,                   //是否显示分页（*）
+        // sortable: false,                     //是否启用排序
+        // sortOrder: 'asc',                   //排序方式
+        // queryParams: bsTable.queryParams,   //传递参数（*）
         sidePagination: 'server',           //分页方式：client客户端分页，server服务端分页（*）
-        pageNumber:1,                       //初始化加载第一页，默认第一页
-        pageSize: 10,                       //每页的记录行数（*）
-        pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
-        search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
-        strictSearch: true,
+        // pageNumber:1,                       //初始化加载第一页，默认第一页
+        // pageSize: 10,                       //每页的记录行数（*）
+        // pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+        // search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+        // strictSearch: true,
         showColumns: true,                  //是否显示所有的列
         showRefresh: true,                  //是否显示刷新按钮
         minimumCountColumns: 2,             //最少允许的列数
         clickToSelect: true,                //是否启用点击选中行
-        height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+        // height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
         uniqueId: 'ID',                     //每一行的唯一标识，一般为主键列
         showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
         cardView: false,                    //是否显示详细视图
         detailView: true,                   //是否显示父子表
         columns: [{
-          checkbox: true
-        }, {
-          field: 'id',
-          title: '部门名称',
+          field: 'text',
+          title: '属性',
           align: 'center',
+          width: '15%',
+          valign: 'middle'
+        }, {
+          field: 'name',
+          title: '',
+          visible: false,
+        }, {
+          field: 'value',
+          title: '属性值',
           editable: {
             type: 'text',
             title: 'Name'
-          }
+          },
+          halign: 'center',
         }, {
-          field: 'type',
-          title: '上级部门'
-        }, {
-          field: 'img',
-          title: '部门级别'
-        }, {
-          field: 'text',
-          title: '描述'
+          field: 'desc',
+          title: '说明',
+          width: '45%',
+          halign: 'center'
         }],
         onEditableSave: function(field, row, oldValue, $sel){
           $('#test').bootstrapTable('resetView');
-        },
-        // data:[
-        //   {id: '1', type: '1', img: '1', text: '1'},
-        //   {id: '1', type: '1', img: '1', text: '1'},
-        //   {id: '1', type: '1', img: '1', text: '1'},
-        //   {id: '1', type: '1', img: '1', text: '1'},
-        //   {id: '1', type: '1', img: '1', text: '1'}
-        // ],
-        onLoadSuccess: function(data){
-          console.log(data);
         }
       });
     };
@@ -671,13 +666,13 @@ export class TemplateCreateComponent implements OnInit, OnChanges {
     };
     return bsTable;
   }
-  toolbarInit() {
+  /*toolbarInit() {
     const toolbars = Object.create({});
     toolbars.init = function(){
       //初始化页面上面的按钮事件
     };
     return toolbars;
-  }
+  }*/
   ngOnInit() {
 
     if (!jQuery().bootstrapWizard) {
@@ -1154,14 +1149,15 @@ export class TemplateCreateComponent implements OnInit, OnChanges {
     };
     const tbl = this.tableInit();
     tbl.init();
-    const toolbar = this.toolbarInit();
-    toolbar.init();
+    // const toolbar = this.toolbarInit();
+    // toolbar.init();
 
     $('#SettingTree').on('select_node.jstree', (e, data) => {
-      console.log([data.node.data]);
-      $('#test').bootstrapTable('removeAll');
-      $('#test').bootstrapTable('append', [data.node.data]);
 
+      console.log('settings', instance.get_json());
+      $('#test').bootstrapTable('removeAll');
+      $('#test').bootstrapTable('append', data.node.data.properties);
+      console.log(this.generateSettingData2(instance.get_json()[0]));
       //this.broadcaster.broadcast('node_properties', data.node.data);
       // const promise = this.router.navigate(['/app/module-template/create/template-properties/' + data.node.type + '/' + data.node.id]);
       // promise.then(() => {
@@ -1170,7 +1166,7 @@ export class TemplateCreateComponent implements OnInit, OnChanges {
       //   //console.log(instance.get_json());
       //   const total = instance.get_json();
       //   const settings = this.generateSettingData(total[0]);
-      //   //console.log('settings', JSON.stringify(settings));
+      //
       // });
       //allTreeJson = instance.get_json();
       /*console.log(allTreeJson);
@@ -1191,8 +1187,99 @@ export class TemplateCreateComponent implements OnInit, OnChanges {
       //console.log(instance.get_path(data.node, '/', true));
     });
   }
-  ngOnChanges(changes) {
-    console.log(changes);
+  private generateSettingData2 (nodeData: any) {
+    const currentData = nodeData.data.properties;
+    const currentChildren = nodeData.children;
+    let obj;
+    switch (currentData[0].name){
+      case 'totalArea':
+        obj = { totalArea: {}};
+        for(const child of currentChildren){
+          if(child.children.length > 0 ){
+            obj.totalArea[child.data.properties[0].name] = this.generateSettingData2(child);
+          }else{
+            obj.totalArea[child.data.properties[0].name] = child.data.properties[0].value;
+          }
+        }
+        return obj;
+      case 'pageConfigs':
+        const arr = [];
+        for(const child of currentChildren){
+          arr.push(this.generateSettingData2(child));
+        }
+        return arr;
+      case 'pageConfigsObj':
+        obj = {};
+        for(const child of currentChildren){
+          if(child.children.length > 0 ){
+            obj[child.data.properties[0].name] = this.generateSettingData2(child);
+          }else{
+            obj[child.data.properties[0].name] = child.data.properties[0].value;
+          }
+        }
+        return obj;
+      case 'viewCfg':
+        obj = {};
+        for(const child of currentChildren){
+          if(child.children.length > 0 ){
+            obj[child.data.properties[0].name] = this.generateSettingData2(child);
+          }else if(child.children.length === 0){
+            obj[child.data.properties[0].name] = child.data.properties[0].value;
+          }else if(child.data.properties.length > 1){
+            return child.data.properties;
+          }
+        }
+        return obj;
+      case 'columnConfigs':
+        const columnConfigs = [];
+        for (const child of currentChildren){
+          const column = {};
+          for (const d of child.data.properties){
+            if(Array.isArray(d.value) && d.name === 'customSetting'){
+              const tem = [];
+              for(const customSettings of d.value){
+                const setting = {}
+                for(const cs of customSettings){
+                  setting[cs.name] = cs.value;
+                }
+                tem.push(setting);
+              }
+              column[d.name] = tem;
+            }else{
+              column[d.name] = d.value;
+            }
+
+
+          }
+          columnConfigs.push(column);
+        }
+        return columnConfigs;
+      case 'toolbarsConfig':
+        const toolbarsConfig = [];
+        for (const child of currentChildren){
+          const btn = {};
+          for (const t of child.data.properties){
+            btn[t.name] = t.value;
+          }
+          toolbarsConfig.push(btn);
+        }
+        return toolbarsConfig;
+      case 'sortConfig':
+        obj = {};
+        for(const child of currentChildren){
+          if(child.children.length > 0 ){
+            obj[child.data.properties[0].name] = this.generateSettingData2(child);
+          }else{
+            obj[child.data.properties[0].name] = child.data.properties[0].value;
+          }
+        }
+        return obj;
+      case 'toolbarsEnabledConfig':
+        break;
+      case 'childToolbarEnabledConfig':
+        break;
+    }
+
   }
   private generateSettingData(nodeData: any): any {
     const currentData = nodeData.data;

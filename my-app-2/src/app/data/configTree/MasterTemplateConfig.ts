@@ -28,14 +28,14 @@ export class MasterTemplateConfig {
           disabled: true,
           selected: false,
         },
-        data:{
-          totalArea: {}
-        }
+        data: {
+        properties:[{text: '模版布局', name: 'totalArea', value: {}, desc: ''}]
+      }
       },
       // totalAreaChildren
       {
         id: 'masterTemplateConfig_classType',
-        text: '布局类型  <span class="badge badge-default">: Layout</span>',
+        text: '布局类型',
         icon: 'fa fa-clone icon-state-success',
         li_attr: '',
         a_attr: '',
@@ -47,13 +47,11 @@ export class MasterTemplateConfig {
           disabled: true,
           selected: false,
         },
-        data: {
-          classType: 'Layout'
-        }
+        data: {properties:[{ text: '布局类型', name: 'classType', value: 'Layout', desc: ''}]}
       },
       {
         id: 'masterTemplateConfig_parent',
-        text: '布局ID  <span class="badge badge-default">: ID</span>',
+        text: '布局ID',
         icon: 'fa fa-paperclip icon-state-success',
         li_attr: '',
         a_attr: '',
@@ -65,13 +63,11 @@ export class MasterTemplateConfig {
           disabled: true,
           selected: false,
         },
-        data: {
-          parent: 'view_Name'
-        }
+        data: {properties: [{ text: '布局类型', name: 'parent', value: 'view_Name', desc: ''}]}
       },
       {
         id: 'masterTemplateConfig_pattern',
-        text: '布局模式  <span class="badge badge-default ">: 1C</span>',
+        text: '布局模式',
         icon: 'fa fa-th icon-state-success',
         li_attr: '',
         a_attr: '',
@@ -83,9 +79,7 @@ export class MasterTemplateConfig {
           disabled: true,
           selected: false,
         },
-        data: {
-          pattern: '1C'
-        }
+        data: {properties: [{ text: '布局模式', name: 'pattern', value: '1C', desc: ''}]}
       },
       // pageConfigs
       {
@@ -102,9 +96,7 @@ export class MasterTemplateConfig {
           disabled: true,
           selected: false,
         },
-        data: {
-          pageConfigs: []
-        }
+        data: {properties: [{ text: '页面配置', name: 'pageConfigs', value: [], desc: ''}]}
       },
       {
         id: 'masterTemplateConfig_1_pageConfigs_1',
@@ -120,14 +112,12 @@ export class MasterTemplateConfig {
           disabled: true,
           selected: false,
         },
-        data: {
-          pageConfigsObj: {}
-        }
+        data: {properties: [{ text: '区域 1', name: 'pageConfigsObj', value: {}, desc: ''}]}
       },
       // pageConfigsChildren
       {
         id: 'pageConfigs_1_classType',
-        text: '布局类型  <span class="badge badge-default">: Cell</span>',
+        text: '布局类型',
         icon: 'fa fa-copy',
         li_attr: '',
         a_attr: '',
@@ -140,13 +130,11 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'node',
-        data: {
-          classType: 'cell'
-        }
+        data:  {properties: [{ text: '布局类型', name: 'classType', value: 'cell', desc: ''}]}
       },
       {
         id: 'pageConfigs_1_id',
-        text: '布局标志 <span class="badge badge-default">: a</span>',
+        text: '布局标志',
         icon: 'fa fa-paperclip',
         li_attr: '',
         a_attr: '',
@@ -159,9 +147,7 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'node',
-        data:{
-          id: 'a'
-        }
+        data: {properties: [{ text: '布局标志', name: 'id', value: 'a', desc: ''}]}
       },
       {
         id: 'pageConfigs_1_text',
@@ -178,9 +164,7 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'title',
-        data:{
-          text: '标题'
-        }
+        data: {properties: [{ text: '布局标志', name: 'text', value: '标题', desc: ''}]}
       },
       {
         id: 'pageConfigs_1_header',
@@ -197,13 +181,11 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'showTitle',
-        data:{
-          header: 'true'
-        }
+        data: {properties: [{ text: '是否显示标题', name: 'header', value: 'true', desc: ''}]}
       },
       {
         id: 'pageConfig_1_pagingBarName',
-        text: '分页对象 <span class="badge badge-default">: pagingBar_1</span>',
+        text: '分页对象',
         icon: 'fa fa-flag',
         li_attr: '',
         a_attr: '',
@@ -216,9 +198,7 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'node',
-        data:{
-          pagingBarName: 'name_pagingbar' // auto generate
-        }
+        data: {properties: [{ text: '分页对象', name: 'pagingBarName', value: '', desc: ''}]}
       },
       // viewCfg
       {
@@ -235,14 +215,12 @@ export class MasterTemplateConfig {
           disabled: true,
           selected: false,
         },
-        data:{
-          viewCfg: {}
-        }
+        data: {properties: [{ text: '组件配置', name: 'viewCfg', value: {}, desc: ''}]}
       },
       // viewCfgChildren
       {
         id: 'viewCfg_1_classType',
-        text: '组件名称 <span class="badge badge-default">: GridView</span>',
+        text: '组件名称',
         icon: 'fa fa-cogs font-orange',
         li_attr: '',
         a_attr: '',
@@ -255,13 +233,11 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'node',
-        data:{
-          classType: 'Grid_View'
-        }
+        data: {properties: [{ text: '组件名称', name: 'classType', value: 'Grid_View', desc: ''}]}
       },
       {
         id: 'viewCfg_1_id',
-        text: '配置标识 <span class="badge badge-default">: a</span>',
+        text: '配置标识',
         icon: 'fa fa-paperclip font-orange',
         li_attr: '',
         a_attr: '',
@@ -274,13 +250,11 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'node',
-        data:{
-          id: 'a'
-        }
+        data: {properties: [{ text: '配置标识', name: 'id', value: 'a', desc: ''}]}
       },
       {
         id: 'viewCfg_1_pagingBarName',
-        text: '分页对象 <span class="badge badge-default">: pagingBar_1</span>',
+        text: '分页对象',
         icon: 'fa fa-flag',
         li_attr: '',
         a_attr: '',
@@ -292,9 +266,7 @@ export class MasterTemplateConfig {
           disabled: true,
           selected: false,
         },
-        data:{
-          pagingBarName: 'name_pagingbar'
-        }
+        data: {properties: [{ text: '分页对象', name: 'pagingBarName', value: '', desc: ''}]}
       },
       {
         id: 'viewCfg_1_toolbarsConfig',
@@ -307,13 +279,11 @@ export class MasterTemplateConfig {
         value: null,
         state: {
           opened: true,
-          disabled: false,
+          disabled: true,
           selected: false,
         },
         type: 'toolbarConfig',
-        data: {
-          toolbarsConfig: []
-        }
+        data: {properties: [{ text: '工具栏设置', name: 'toolbarsConfig', value: [], desc: ''}]}
       },
       // toolbarsConfig child
       {
@@ -331,23 +301,29 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'button',
-        data: {
-          id: 'refresh',
-          type: 'button',
-          img: 'fa fa-refresh',
-          disImg: '',
-          text: '刷新',
-          htype: 'common',
-          initState: true,
-          events: {
-            execution: {
-              api: '',
-              method: '',
-              keyID: '',
-              callback: ''
-            }
-          }
-        }
+        data: {properties: [
+          { text: 'ID', name: 'id', value: 'refresh', desc: ''},
+          { text: '按钮类型', name: 'type', value: 'button', desc: ''},
+          { text: '启用状态图标', name: 'img', value: 'fa fa-refresh', desc: ''},
+          { text: '禁用状态图标', name: 'disImg', value: 'fa fa-refresh', desc: ''},
+          { text: '按钮内容', name: 'text', value: '刷新', desc: ''},
+          { text: '触发方式', name: 'htype', value: 'common', desc: ''},
+          { text: '初始状态', name: 'initState', value: true, desc: ''},
+          { text: '弹出窗体', name: 'totalArea', value: {}, desc: ''},
+          { text: '事件设置', name: 'events', value: [
+            { text: '提示标题', name: 'title', value: '', desc: ''},
+            { text: '提示信息', name: 'text', value: '', desc: ''},
+            { text: '提示类型', name: 'type', value: 'confirm-warning', desc: ''},
+            { text: '事件执行', name: 'execution', value: [
+              { text: '执行API', name: 'api', value: 'refresh', desc: ''},
+              { text: '执行方式', name: 'method', value: 'refresh', desc: ''},
+              { text: '主键', name: 'keyId', value: 'refresh', desc: ''},
+              { text: '参数', name: 'paramMapping', value: [
+                { text: '参数名称', name: '', value: '', desc: ''},
+              ], desc: ''},
+            ], desc: ''},
+          ], desc: ''},
+        ]}
       },
       {
         id: 'toolbarsConfig_1_new',
@@ -364,24 +340,29 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'button',
-        data: {
-          id: 'new',
-          type: 'button',
-          img: 'fa fa-plus',
-          disImg: '',
-          text: '添加',
-          htype: 'window',
-          initState: true,
-          totalArea: {},
-          events: {
-            execution: {
-              api: '',
-              method: '',
-              keyID: '',
-              callback: ''
-            }
-          }
-        }
+        data: {properties: [
+          { text: 'ID', name: 'id', value: 'new', desc: ''},
+          { text: '按钮类型', name: 'type', value: 'button', desc: ''},
+          { text: '启用状态图标', name: 'img', value: 'fa fa-refresh', desc: ''},
+          { text: '禁用状态图标', name: 'disImg', value: 'fa fa-refresh', desc: ''},
+          { text: '按钮内容', name: 'text', value: '新增', desc: ''},
+          { text: '触发方式', name: 'htype', value: 'common', desc: ''},
+          { text: '初始状态', name: 'initState', value: true, desc: ''},
+          { text: '弹出窗体', name: 'totalArea', value: {}, desc: ''},
+          { text: '事件设置', name: 'events', value: [
+            { text: '提示标题', name: 'title', value: '', desc: ''},
+            { text: '提示信息', name: 'text', value: '', desc: ''},
+            { text: '提示类型', name: 'type', value: 'confirm-warning', desc: ''},
+            { text: '事件执行', name: 'execution', value: [
+              { text: '执行API', name: 'api', value: 'refresh', desc: ''},
+              { text: '执行方式', name: 'method', value: 'refresh', desc: ''},
+              { text: '主键', name: 'keyId', value: 'refresh', desc: ''},
+              { text: '参数', name: 'paramMapping', value: [
+                { text: '参数名称', name: '', value: '', desc: ''},
+              ], desc: ''},
+            ], desc: ''},
+          ], desc: ''},
+        ]}
       },
       {
         id: 'toolbarsConfig_1_delete',
@@ -398,26 +379,29 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'button',
-        data: {
-          id: 'del',
-          type: 'button',
-          img: 'fa fa-flash',
-          disImg: '',
-          text: '删除',
-          htype: 'confirm',
-          initState: true,
-          events: {
-            title: '确认提示',
-            text: '是否要删除选中记录？',
-            type: 'confirm-waning',
-            execution: {
-              api: '',
-              method: 'delete',
-              keyID: '',
-              callback: ''
-            }
-          }
-        }
+        data: {properties: [
+          { text: 'ID', name: 'id', value: 'new', desc: ''},
+          { text: '按钮类型', name: 'type', value: 'button', desc: ''},
+          { text: '启用状态图标', name: 'img', value: 'fa fa-refresh', desc: ''},
+          { text: '禁用状态图标', name: 'disImg', value: 'fa fa-refresh', desc: ''},
+          { text: '按钮内容', name: 'text', value: '新增', desc: ''},
+          { text: '触发方式', name: 'htype', value: 'common', desc: ''},
+          { text: '初始状态', name: 'initState', value: true, desc: ''},
+          { text: '弹出窗体', name: 'totalArea', value: {}, desc: ''},
+          { text: '事件设置', name: 'events', value: [
+            { text: '提示标题', name: 'title', value: '', desc: ''},
+            { text: '提示信息', name: 'text', value: '', desc: ''},
+            { text: '提示类型', name: 'type', value: 'confirm-warning', desc: ''},
+            { text: '事件执行', name: 'execution', value: [
+              { text: '执行API', name: 'api', value: 'refresh', desc: ''},
+              { text: '执行方式', name: 'method', value: 'refresh', desc: ''},
+              { text: '主键', name: 'keyId', value: 'refresh', desc: ''},
+              { text: '参数', name: 'paramMapping', value: [
+                { text: '参数名称', name: '', value: '', desc: ''},
+              ], desc: ''},
+            ], desc: ''},
+          ], desc: ''},
+        ]}
       },
       {
         id: 'toolbarsConfig_1_search',
@@ -434,24 +418,29 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'button',
-        data: {
-          id: 'search',
-          type: 'button',
-          img: 'fa fa-search',
-          disImg: '',
-          text: '查询',
-          htype: 'window',
-          initState: true,
-          totalArea: {},
-          events: {
-            execution: {
-              api: '',
-              method: '',
-              keyID: '',
-              callback: ''
-            }
-          }
-        }
+        data: {properties: [
+          { text: 'ID', name: 'id', value: 'new', desc: ''},
+          { text: '按钮类型', name: 'type', value: 'button', desc: ''},
+          { text: '启用状态图标', name: 'img', value: 'fa fa-refresh', desc: ''},
+          { text: '禁用状态图标', name: 'disImg', value: 'fa fa-refresh', desc: ''},
+          { text: '按钮内容', name: 'text', value: '新增', desc: ''},
+          { text: '触发方式', name: 'htype', value: 'common', desc: ''},
+          { text: '初始状态', name: 'initState', value: true, desc: ''},
+          { text: '弹出窗体', name: 'totalArea', value: {}, desc: ''},
+          { text: '事件设置', name: 'events', value: [
+            { text: '提示标题', name: 'title', value: '', desc: ''},
+            { text: '提示信息', name: 'text', value: '', desc: ''},
+            { text: '提示类型', name: 'type', value: 'confirm-warning', desc: ''},
+            { text: '事件执行', name: 'execution', value: [
+              { text: '执行API', name: 'api', value: 'refresh', desc: ''},
+              { text: '执行方式', name: 'method', value: 'refresh', desc: ''},
+              { text: '主键', name: 'keyId', value: 'refresh', desc: ''},
+              { text: '参数', name: 'paramMapping', value: [
+                { text: '参数名称', name: '', value: '', desc: ''},
+              ], desc: ''},
+            ], desc: ''},
+          ], desc: ''},
+        ]}
       },
       {
         id: 'viewCfg_1_columnConfigs',
@@ -464,13 +453,11 @@ export class MasterTemplateConfig {
         value: null,
         state: {
           opened: true,
-          disabled: false,
+          disabled: true,
           selected: false,
         },
         type: 'columnConfig',
-        data: {
-          columnConfigs: []
-        }
+        data: {properties: [{ text: '数据列', name: 'columnConfigs', value: [], desc: ''}]}
       },
       // columnConfigs child
       {
@@ -488,16 +475,23 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'field',
-        data: {
-          'field': 'column 2',
-          'header': '数据列...',
-          'colwidth': '100',
-          'colalign': 'center',
-          'coltype': 'ro',
-          'colhide': 'false',
-          'customSetting': [],
-          'colsorting': 'server'
-        }
+        data: {properties: [
+          { text: '字段', name: 'field', value: 'column 1', desc: ''},
+          { text: '标题', name: 'header', value: '列', desc: ''},
+          { text: '宽度', name: 'colwidth', value: 100, desc: ''},
+          { text: '列类型', name: 'coltype', value: 'ro', desc: ''},
+          { text: '对齐方式', name: 'colalign', value: 'center', desc: ''},
+          { text: '是否隐藏', name: 'colhide', value: false, desc: ''},
+          { text: '自定义列', name: 'customSetting', value: [
+            [
+              { text: '字段原始值', name: 'value', value: '', desc: ''},
+              { text: '背景色', name: 'bgcolor', value: '', desc: ''},
+              { text: '字体颜色', name: 'fontcolor', value: '', desc: ''},
+              { text: '字段转换值', name: 'valueas', value: '', desc: ''}
+            ]
+          ], desc: ''},
+          { text: '排序方式', name: 'colsorting', value: 'server', desc: ''}
+        ]}
       },
       {
         id: 'toolbarsConfig_1_col2',
@@ -514,16 +508,23 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'field',
-        data: {
-          'field': 'column 3',
-          'header': '数据列...',
-          'colwidth': '100',
-          'colalign': 'center',
-          'coltype': 'ro',
-          'colhide': 'false',
-          'customSetting': [],
-          'colsorting': 'server'
-        }
+        data: {properties: [
+          { text: '字段', name: 'field', value: 'column 2', desc: ''},
+          { text: '标题', name: 'header', value: '列', desc: ''},
+          { text: '宽度', name: 'colwidth', value: 100, desc: ''},
+          { text: '列类型', name: 'coltype', value: 'ro', desc: ''},
+          { text: '对齐方式', name: 'colalign', value: 'center', desc: ''},
+          { text: '是否隐藏', name: 'colhide', value: false, desc: ''},
+          { text: '自定义列', name: 'customSetting', value: [
+            [
+              { text: '字段原始值', name: 'value', value: '', desc: ''},
+              { text: '背景色', name: 'bgcolor', value: '', desc: ''},
+              { text: '字体颜色', name: 'fontcolor', value: '', desc: ''},
+              { text: '字段转换值', name: 'valueas', value: '', desc: ''}
+            ]
+          ], desc: ''},
+          { text: '排序方式', name: 'colsorting', value: 'server', desc: ''}
+        ]}
       },
       {
         id: 'toolbarsConfig_1_col3',
@@ -540,16 +541,23 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'field',
-        data: {
-          'field': '',
-          'header': '数据列...',
-          'colwidth': '100',
-          'colalign': 'center',
-          'coltype': 'ro',
-          'colhide': 'false',
-          'customSetting': [],
-          'colsorting': 'server'
-        }
+        data: {properties: [
+          { text: '字段', name: 'field', value: 'column 3', desc: ''},
+          { text: '标题', name: 'header', value: '列', desc: ''},
+          { text: '宽度', name: 'colwidth', value: 100, desc: ''},
+          { text: '列类型', name: 'coltype', value: 'ro', desc: ''},
+          { text: '对齐方式', name: 'colalign', value: 'center', desc: ''},
+          { text: '是否隐藏', name: 'colhide', value: false, desc: ''},
+          { text: '自定义列', name: 'customSetting', value: [
+            [
+              { text: '字段原始值', name: 'value', value: '', desc: ''},
+              { text: '背景色', name: 'bgcolor', value: '', desc: ''},
+              { text: '字体颜色', name: 'fontcolor', value: '', desc: ''},
+              { text: '字段转换值', name: 'valueas', value: '', desc: ''}
+            ]
+          ], desc: ''},
+          { text: '排序方式', name: 'colsorting', value: 'server', desc: ''}
+        ]}
       },
       {
         id: 'toolbarsConfig_1_col4',
@@ -566,16 +574,23 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'field',
-        data: {
-          'field': '',
-          'header': '数据列...',
-          'colwidth': '100',
-          'colalign': 'center',
-          'coltype': 'ro',
-          'colhide': 'false',
-          'customSetting': [],
-          'colsorting': 'server'
-        }
+        data: {properties: [
+          { text: '字段', name: 'field', value: 'column 4', desc: ''},
+          { text: '标题', name: 'header', value: '列', desc: ''},
+          { text: '宽度', name: 'colwidth', value: 100, desc: ''},
+          { text: '列类型', name: 'coltype', value: 'ro', desc: ''},
+          { text: '对齐方式', name: 'colalign', value: 'center', desc: ''},
+          { text: '是否隐藏', name: 'colhide', value: false, desc: ''},
+          { text: '自定义列', name: 'customSetting', value: [
+            [
+              { text: '字段原始值', name: 'value', value: '', desc: ''},
+              { text: '背景色', name: 'bgcolor', value: '', desc: ''},
+              { text: '字体颜色', name: 'fontcolor', value: '', desc: ''},
+              { text: '字段转换值', name: 'valueas', value: '', desc: ''}
+            ]
+          ], desc: ''},
+          { text: '排序方式', name: 'colsorting', value: 'server', desc: ''}
+        ]}
       },
       {
         id: 'viewCfg_1_columnConfigClass',
@@ -592,9 +607,9 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'dataSourceAPI',
-        data:{
-          columnConfigClass: ''
-        }
+        data:{properties: [
+          { text: '数据源API', name: 'columnConfigClass', value: '', desc: ''}
+        ]}
       },
       {
         id: 'viewCfg_1_sortConfig',
@@ -611,52 +626,48 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'sort',
-        data:{
-          sortConfig:{
-            _sort: '',
-            _order: 'asc'
-          }
-        }
+        data:{properties: [
+          { text: '排序设置', name: 'sortConfig', value: {}, desc: ''},
+        ]}
       },
-      // sortConfig child
-      // {
-      //   id: 'toolbarsConfig_1_sort1',
-      //   text: '排序列',
-      //   icon: '',
-      //   li_attr: '',
-      //   a_attr: '',
-      //   parent: 'viewCfg_1_sortConfig',
-      //   readonly: true,
-      //   value: null,
-      //   state: {
-      //     opened: true,
-      //     disabled: false,
-      //     selected: false,
-      //   },
-      //   type: 'sort',
-      //   data: {
-      //     _sort: '',
-      //   }
-      // },
-      // {
-      //   id: 'toolbarsConfig_1_sort2',
-      //   text: '排序方式',
-      //   icon: '',
-      //   li_attr: '',
-      //   a_attr: '',
-      //   parent: 'viewCfg_1_sortConfig',
-      //   readonly: true,
-      //   value: null,
-      //   state: {
-      //     opened: true,
-      //     disabled: false,
-      //     selected: false,
-      //   },
-      //   type: 'sort',
-      //   data: {
-      //     _order: ''
-      //   }
-      // },
+      {
+        id: 'viewCfg_1_sortConfig1',
+        text: '排序字段',
+        icon: '',
+        li_attr: '',
+        a_attr: '',
+        parent: 'viewCfg_1_sortConfig',
+        readonly: true,
+        value: null,
+        state: {
+          opened: true,
+          disabled: false,
+          selected: false,
+        },
+        type: 'sort',
+        data:{properties: [
+          { text: '排序字段', name: '_sort', value: '', desc: ''},
+        ]}
+      },
+      {
+        id: 'viewCfg_1_sortConfig2',
+        text: '排序方式',
+        icon: '',
+        li_attr: '',
+        a_attr: '',
+        parent: 'viewCfg_1_sortConfig',
+        readonly: true,
+        value: null,
+        state: {
+          opened: true,
+          disabled: false,
+          selected: false,
+        },
+        type: 'sort',
+        data:{properties: [
+          { text: '排序方式', name: '_order', value: 'asc', desc: ''},
+        ]}
+      },
       {
         id: 'viewCfg_1_columnConfigItem',
         text: '数据项API',
@@ -672,9 +683,9 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'dataSourceItemAPI',
-        data: {
-          columnConfigItem: ''
-        }
+        data:{properties: [
+          { text: '数据项API', name: 'columnConfigItem', value: '', desc: ''}
+        ]}
       },
       {
         id: 'viewCfg_1_toolbarsStatusConfig',
@@ -690,7 +701,12 @@ export class MasterTemplateConfig {
           disabled: false,
           selected: false,
         },
-        type: 'toolbarStatusConfig'
+        type: 'toolbarStatusConfig',
+        data:{
+          properties:[
+            { text: '按钮状态配置', name: 'toolbarsStatusConfig', value: [], desc: ''}
+          ]
+        }
       },
       {
         id: 'viewCfg_1_pagingSetting',
@@ -707,9 +723,9 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'pagingSetting',
-        data:{
-          pagingSetting: '100,10'
-        }
+        data: {properties: [
+          { text: '数据项API', name: 'pagingSetting', value: '', desc: ''}
+        ]}
       },
       {
         id: 'viewCfg_1_isEnablePaging',
@@ -726,9 +742,9 @@ export class MasterTemplateConfig {
           selected: false,
         },
         type: 'isEnablePaging',
-        data: {
-          isEnablePaging: 'true'
-        }
+        data: {properties: [
+          { text: '数据项API', name: 'isEnablePaging', value: '', desc: ''}
+        ]}
       }
     ];
   }
